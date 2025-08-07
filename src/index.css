@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+@theme {
+  --color-primary-100: #F4F2FF;
+  --color-primary-200: #EAE8FF;
+  --color-primary-300: #D8D4FF;
+  --color-primary-400: #947FFF;
+  --color-primary-500: #6932F5;
+  --color-primary-600: #250C69;
+
+  --color-secondary-100: #F1F8FE;
+  --color-secondary-200: #E3F0FB;
+  --color-secondary-300: #C0E1F7;
+  --color-secondary-400: #54B2E7;
+  --color-secondary-500: #1576B4;
+  --color-secondary-600: #154465;
+
+  --color-success-100: #EFFEFA;
+  --color-success-200: #CAFDF3;
+  --color-success-300: #95FAE9;
+  --color-success-400: #26DBC9;
+  --color-success-500: #07948B;
+  --color-success-600: #0E615E;
+
+  --color-info-100: #EEF5FF;
+  --color-info-200: #DAE8FF;
+  --color-info-300: #BDD8FF;
+  --color-info-400: #4D94FF;
+  --color-info-500: #1F57F1;
+  --color-info-600: #1936B4;
+
+  --color-warning-100: #FFF6E0;
+  --color-warning-200: #FFEBC9;
+  --color-warning-300: #FFDEA6;
+  --color-warning-400: #FFBE4C;
+  --color-warning-500: #E59100;
+  --color-warning-600: #B27100;
+
+  --color-danger-100: #FFF0F3;
+  --color-danger-200: #FADBE1;
+  --color-danger-300: #ED8296;
+  --color-danger-400: #DF1C41;
+  --color-danger-500: #E53355;
+  --color-danger-600: #710E21;
+
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #090718;
+
+  --color-white-neutral-50: #FFFFFFE0;
+  --color-white-neutral-100: #FFFFFFCC;
+  --color-white-neutral-200: #FFFFFFB8;
+  --color-white-neutral-300: #FFFFFFA3;
+  --color-white-neutral-400: #FFFFFF8F;
+  --color-white-neutral-500: #FFFFFF66;
+  --color-white-neutral-600: #FFFFFF52;
+  --color-white-neutral-700: #FFFFFF33;
+  --color-white-neutral-800: #FFFFFF1A;
+  --color-white-neutral-900: #FFFFFF0F;
+
+  --color-base-white: #FFFFFF;
+  --color-base-black: #000000;
+}
