@@ -11,11 +11,11 @@ export default function Navbar() {
                 <InputNavbar/>
                 <div className='flex flex-row gap-5 items-center'>
                     <div className='flex flex-row gap-3 items-center border-r border-white-neutral-800 pr-5'>
-                        <Bell className='w-6 h-6 text-white-neutral-500'/>
-                        <Gift className='w-6 h-6 text-white-neutral-500'/>
-                        <CirclePlus className='w-6 h-6 text-white-neutral-500'/>
+                        <Bell className='size-6 text-white-neutral-500 cursor-pointer'/>
+                        <Gift className='size-6 text-white-neutral-500 cursor-pointer'/>
+                        <CirclePlus className='size-6 text-white-neutral-500 cursor-pointer'/>
                     </div>
-                    <Button size='default' variant='default'>Connect Wallet</Button>
+                    <Button size='default' variant='default' className='cursor-pointer'>Connect Wallet</Button>
                 </div>
             </div>
         </div>

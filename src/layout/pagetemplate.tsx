@@ -1,13 +1,15 @@
-import type { PropsWithChildren } from "react";
 import Navbar from "../components/templates/navbar";
 import Navigation from "@/components/templates/nav";
+import { Outlet } from "react-router-dom";
 
-export default function PageTemplate({children}: PropsWithChildren) {
+export default function PageTemplate() {
     return (
         <div className="bg-neutral-900">
            <Navbar/>
            <Navigation /> 
-           {children}
+           <main>
+                <Outlet />
+           </main>
         </div>
     );
 }

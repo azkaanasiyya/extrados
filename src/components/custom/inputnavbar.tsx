@@ -11,7 +11,7 @@ export default function InputNavbar() {
                 />
             </span>
             <Input placeholder="Search" className="w-full pl-10"/>
-            <img alt="command" src={command} className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-6"/>
+            <img alt="command" src={command} className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-6 cursor-pointer"/>
         </div>
     )
 }
