@@ -4,8 +4,8 @@ import { Columns3Cog, Filter } from "lucide-react";
 
 export default function Tokens() {
     return (
-        <div className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] flex flex-col w-full">
-                    <div className="max-w-[1200px] w-full flex flex-row items-center justify-between border-b border-white-neutral-800 p-5">
+        <div className="max-w-[1200px] w-full bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] flex flex-col">
+                    <div className="flex flex-row items-center justify-between border-b border-white-neutral-800 p-5">
                         <span className="text-[16px] leading-[160%] text-base-white font-medium">Tokens</span>
                         <div className="flex flex-row gap-2">
                             <Button variant="swap" size="default" className="cursor-pointer">

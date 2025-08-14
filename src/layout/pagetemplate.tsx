@@ -10,7 +10,7 @@ export default function PageTemplate() {
                 <div className="max-w-[1200px] w-full flex flex-col gap-6">
                     <Navigation /> 
                     <main>
-                            <Outlet />
+                        <Outlet />
                     </main>
                 </div>
            </div>
