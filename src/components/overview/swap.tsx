@@ -58,7 +58,7 @@ export default function Swap() {
                 </div>
             </div>
             <div className="px-5 pt-4 pb-5">
-                <Button variant="swap" size="medium" className="w-full">Swap</Button>
+                <Button variant="swap" size="medium" className="w-full cursor-pointer">Swap</Button>
             </div>
         </div>
     )
