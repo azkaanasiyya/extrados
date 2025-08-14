@@ -1,0 +1,58 @@
+import eth from "@/assets/overview/ethereum.png"
+import tether from "@/assets/overview/tether.png"
+import usd from "@/assets/overview/usd.png"
+import bnb from "@/assets/overview/binance.png"
+import doge from "@/assets/overview/dogecoin.png"
+
+export const TokensData = [
+    {
+        name: 'Ethereum',
+        image: eth,
+        price: '$2,500.75',
+        balance: '25.11 ETH',
+        marketCap: '$301,558,067,440',
+        volume: '$21,006,366,633.98',
+        change: '+ 31.25%',
+        bars: [{color: 'bg-primary-400', count: 12}, {color: 'bg-white-neutral-700', count: 8}],
+    },
+    {
+        name: 'Tether USD',
+        image: tether,
+        price: '$1.00',
+        balance: '5.31 USDC',
+        marketCap: '$120,592,321,039',
+        volume: '$44,937,927,677.20',
+        change: '+ 11.68%',
+        bars: [{color: 'bg-primary-400', count: 7}, {color: 'bg-white-neutral-700', count: 13}],
+    },
+    {
+        name: 'USD Coin',
+        image: usd,
+        price: '$1.00',
+        balance: '58.52 USDC',
+        marketCap: '$34,903,803,892',
+        volume: '$2,818,116,130.68',
+        change: '+ 1.89%',
+        bars: [{color: 'bg-primary-400', count: 1}, {color: 'bg-white-neutral-700', count: 19}],
+    },
+    {
+        name: 'BNB',
+        image: bnb,
+        price: '$563.12',
+        balance: '45.93 BNB',
+        marketCap: '$83,771,165,957.45',
+        volume: '$1,855,882,710.22',
+        change: '+ 3.82%',
+        bars: [{color: 'bg-primary-400', count: 3}, {color: 'bg-white-neutral-700', count: 17}],
+    },
+    {
+        name: 'Dogecoin',
+        image: doge,
+        price: '$23.74',
+        balance: '14.12 DOGE',
+        marketCap: '$23,179,723,229.50',
+        volume: '$2,278,356,284.71',
+        change: '+ 5.21%',
+        bars: [{color: 'bg-primary-400', count: 5}, {color: 'bg-white-neutral-700', count: 15}],
+    },
+]

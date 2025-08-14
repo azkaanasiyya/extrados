@@ -11,9 +11,13 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-white-neutral-900 border border-white-neutral-800 hover:bg-white-neutral-800",
+        overview: "border-0",
+        swap: "border border-white-neutral-800 bg-white-neutral-900 hover:bg-white-neutral-800",
       },
       size: {
-        default: "h-9 rounded-[8px] px-3 py-[7px] text-[14px] flex flex-col justify-center items-center leading-[160%] font-medium text-base-white",
+        default: "h-9 rounded-[8px] px-3 py-[7px] text-[14px] flex flex-row gap-[8px] justify-center items-center leading-[160%] font-medium text-base-white",
+        small: "rounded-[4px] px-[10px] py-[2px] justify-center items-center",
+        medium: "rounded-[8px] w-full h-[36px] items-center justify-center text-[14px] leading-[160%] font-medium text-base-white",
       },
     },
     defaultVariants: {

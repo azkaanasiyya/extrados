@@ -6,10 +6,14 @@ export default function PageTemplate() {
     return (
         <div className="bg-neutral-900">
            <Navbar/>
-           <Navigation /> 
-           <main>
-                <Outlet />
-           </main>
+           <div className="py-6 px-[120px] w-full flex flex-col justify-center items-center">
+                <div className="max-w-[1200px] w-full flex flex-col gap-6">
+                    <Navigation /> 
+                    <main>
+                            <Outlet />
+                    </main>
+                </div>
+           </div>
         </div>
     );
 }
