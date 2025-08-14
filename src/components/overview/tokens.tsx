@@ -30,7 +30,7 @@ export default function Tokens() {
                 <div className="py-2.5 px-2 w-full max-w-[184px] text-end text-[12px] leading-[165%] text-white-neutral-400 font-medium">VOLUME (24H)</div>
                 <div className="py-2.5 px-6 w-full max-w-[216px] text-start text-[12px] leading-[165%] text-white-neutral-400 font-medium">CIRC SUPPLY</div>
             </div>
-            {TokensData.map((token, index) => {
+            {TokensData.slice(0, 5).map((token, index) => {
                 const allBars: React.ReactNode[] = [];
                 token.bars.forEach(group => {
                     for (let i = 0; i < group.count; i++) {
