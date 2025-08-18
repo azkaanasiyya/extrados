@@ -29,7 +29,7 @@ export default function Tokens() {
                 <div className="py-2.5 px-2 w-full max-w-[184px] text-end text-[12px] leading-[165%] text-white-neutral-400 font-medium">VOLUME (24H)</div>
                 <div className="py-2.5 px-6 w-full max-w-[216px] text-start text-[12px] leading-[165%] text-white-neutral-400 font-medium">CIRC SUPPLY</div>
             </div>
-            {TokensData.map((token, index) => {
+            {TokensData.map((token, index, arr) => {
                 const allBars: React.ReactNode[] = [];
                 token.bars.forEach(group => {
                     for (let i = 0; i < group.count; i++) {
@@ -42,7 +42,7 @@ export default function Tokens() {
                     }
                 });
                 return (
-                    <div key={index} className="mx-5 border-b border-white-neutral-800 flex flex-row items-center">
+                    <div key={index} className={`mx-5 flex flex-row items-center ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
                         <div className="py-2.5 px-2 w-full max-w-[208px] items-center justify-start flex flex-row gap-2">
                             <img src={token.image} alt={token.name} className="w-9 h-9" />
                             <span className="text-[14px] leading-[160%] text-base-white font-bold">{token.name}</span>

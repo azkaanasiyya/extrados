@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
-import bnb from "@/assets/overview/bnb.png"
 import eth from "@/assets/overview/eth.png"
 import swap from "@/assets/overview/swap.png"
+import btc from "@/assets/portfolio/bitcoin.png"
 import { Button } from "../ui/button";
 
 export default function Swap() {
@@ -10,15 +10,15 @@ export default function Swap() {
             <div className="px-5 pt-5 pb-4 text-[16px] leading-[160%] text-base-white font-medium">Swap</div>
             <div className="flex flex-col gap-[7px]">
                 <div className="px-5 flex flex-row items-start gap-3">
-                    <img src={bnb} alt="bnb" width={36} height={46} />
+                    <img src={btc} alt="bnb" width={36} height={36} className="pt-[5px]"/>
                     <div className="flex flex-col w-full">
                         <div className="flex flex-row justify-between items-center">
-                            <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">BNB</span>
+                            <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">BTC</span>
                             <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">Pay</span>
                         </div>
                         <div className="flex flex-row justify-between items-center">
                             <div className="flex flex-row gap-1 items-center">
-                               <span className="text-[16px] leading-[160%] font-medium text-base-white">Binance</span> 
+                               <span className="text-[16px] leading-[160%] font-medium text-base-white">Bitcoin</span> 
                                <ChevronDown className="w-4 h-4 text-base-white"/>
                             </div>
                             <span className="text-[16px] leading-[160%] font-bold text-base-white">0.00256</span>
@@ -48,7 +48,7 @@ export default function Swap() {
                             <span className="text-[16px] leading-[160%] font-bold text-base-white">32.45679</span>
                         </div>
                         <div className="flex flex-row justify-between items-center">
-                            <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">Balance: 0.034</span>
+                            <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">Balance: 0</span>
                             <div className="flex flex-row gap-1 items-center">
                                 <span className="text-[12px] leading-[165%] font-medium text-white-neutral-400">$803.25</span>
                                 <span className="text-[12px] leading-[165%] font-medium text-success-400">(+40.8%)</span>

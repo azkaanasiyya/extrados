@@ -1,4 +1,3 @@
-// src/components/overview/TotalBalanceChart.tsx
 "use client"
 import { useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -35,7 +34,7 @@ const TotalBalance = () => {
 
   return (
     <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full">
-      <CardHeader className="flex flex-row items-center justify-between w-full">
+      <CardHeader className="flex flex-row items-start justify-between w-full">
         <div className="flex flex-row gap-5 items-center">
           <button
             onClick={() => setActiveTab('balance')}
@@ -68,7 +67,6 @@ const TotalBalance = () => {
             </div>
           </button>
         </div>
-        {/* Pastikan container di sini juga fleksibel */}
         <div className="flex flex-row items-center">
           {['1H', '1D', '1W', '1M', '1Y'].map((time) => (
             <Button
@@ -91,18 +89,18 @@ const TotalBalance = () => {
               <XAxis 
                 dataKey="date" 
                 tick={{ fill: '#9CA3AF' }} 
-                axisLine={false} // Mengatur warna garis sumbu X
-                tickLine={false} // Menghilangkan garis kecil pada setiap tick
+                axisLine={false} 
+                tickLine={false}
               />
              <YAxis 
                 tickFormatter={(value) => `${value}%`} 
                 tick={{ 
                   fill: '#FFFFFF66', 
-                  fontSize: 12, // Mengatur ukuran teks menjadi 10px
-                  dy: 5 // Mengatur posisi vertikal teks agar lebih rapi
+                  fontSize: 12, 
+                  dy: 5
                 }} 
-                padding={{ bottom: 20 }} // Mengatur jarak garis sumbu Y
-                minTickGap={10} // Mengatur jarak minimal antar tick
+                padding={{ bottom: 20 }} 
+                minTickGap={10}
                 axisLine={false}
                 tickLine={false}
                 tickCount={5}
