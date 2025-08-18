@@ -25,8 +25,8 @@ export default function Pools() {
                 <div className="py-2.5 px-2 w-full max-w-[184px] text-end text-[12px] leading-[165%] text-white-neutral-400 font-medium">VOLUME (24H)</div>
                 <div className="py-2.5 px-2 w-full max-w-[184px] text-end text-[12px] leading-[165%] text-white-neutral-400 font-medium">APR</div>
             </div>
-            {PoolsData.map((pool, index) => (
-                <div key={index} className="mx-5 border-b border-white-neutral-800 flex flex-row items-center">
+            {PoolsData.map((pool, index, arr) => (
+                <div key={index} className={`mx-5 flex flex-row items-center ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
                     <div className="px-2 py-4 flex flex-row items-center gap-2 w-full max-w-[424px]">
                         <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
                             <img src={pool.token1.image} alt={pool.token1.name} width={16} height={16} />
