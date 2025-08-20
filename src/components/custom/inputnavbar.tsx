@@ -15,5 +15,3 @@ export default function InputNavbar() {
         </div>
     )
 }
-
-// return <Input type="email" placeholder="Email" />
