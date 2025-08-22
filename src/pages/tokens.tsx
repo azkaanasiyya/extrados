@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { TokensData } from "@/data/token";
 import { Columns3Cog, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Tokens() {
     return (
@@ -42,22 +43,24 @@ export default function Tokens() {
                     }
                 });
                 return (
-                    <div key={index} className={`mx-5 flex flex-row items-center ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
-                        <div className="py-2.5 px-2 w-full max-w-[208px] items-center justify-start flex flex-row gap-2">
-                            <img src={token.image} alt={token.name} className="w-9 h-9" />
-                            <span className="text-[14px] leading-[160%] text-base-white font-bold">{token.name}</span>
-                        </div>
-                        <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.price}</div>
-                        <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.balance}</div>
-                        <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.marketCap}</div>
-                        <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.volume}</div>
-                        <div className="py-4 px-6 w-full max-w-[216px] flex flex-row gap-1.5 items-center">
-                            <div className="flex flex-row gap-[3px]">
-                                {allBars}
+                    <Link key={index} to={`/tokens/details`}>
+                       <div key={index} className={`mx-5 flex flex-row items-center cursor-pointer hover:bg-white-neutral-800 ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
+                            <div className="py-2.5 px-2 w-full max-w-[208px] items-center justify-start flex flex-row gap-2">
+                                <img src={token.image} alt={token.name} className="w-9 h-9" />
+                                <span className="text-[14px] leading-[160%] text-base-white font-bold">{token.name}</span>
                             </div>
-                            <span className="text-[14px] leading-[160%] font-medium text-base-white">{token.change}</span>
-                        </div>
-                    </div>
+                            <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.price}</div>
+                            <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.balance}</div>
+                            <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.marketCap}</div>
+                            <div className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.volume}</div>
+                            <div className="py-4 px-6 w-full max-w-[216px] flex flex-row gap-1.5 items-center">
+                                <div className="flex flex-row gap-[3px]">
+                                    {allBars}
+                                </div>
+                                <span className="text-[14px] leading-[160%] font-medium text-base-white">{token.change}</span>
+                            </div>
+                        </div>  
+                    </Link>
                 )
             })}
         </div>

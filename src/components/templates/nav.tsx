@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 export default function Navigation() {
     const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
         isActive
-            ? "text-[14px] leading-[160%] px-4 py-[7px] bg-white-neutral-900 rounded-[8px] text-base-white cursor-pointer hover:bg-white-neutral-900 hover:rounded-[8px]"
-            : "text-[14px] leading-[160%] px-4 py-[7px] text-white-neutral-400 cursor-pointer hover:bg-white-neutral-900 hover:rounded-[8px]";
+            ? "text-[14px] leading-[160%] px-4 py-[7px] bg-white-neutral-900 rounded-[8px] text-base-white cursor-pointer hover:bg-white-neutral-900 hover:rounded-[8px] transition-all duration-300" 
+            : "text-[14px] leading-[160%] px-4 py-[7px] text-white-neutral-400 cursor-pointer hover:bg-white-neutral-900 hover:rounded-[8px] transition-all duration-300";
 
     return (
         <div className="flex flex-col items-center justify-center">

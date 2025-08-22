@@ -33,7 +33,7 @@ const TotalBalance = () => {
   };
 
   return (
-    <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full">
+    <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full flex flex-col justify-between">
       <CardHeader className="flex flex-row items-start justify-between w-full">
         <div className="flex flex-row gap-5 items-center">
           <button

@@ -5,6 +5,7 @@ import Tokens from "./pages/tokens";
 import Pools from "./pages/pools";
 import Portfolio from "./pages/portfolio";
 import Settings from "./pages/settings";
+import TokenDetails from "./pages/tokendetails";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Route path="/" element={<PageTemplate />}>
         <Route index element={<Overview />} />
         <Route path="tokens" element={<Tokens />}/>
+        <Route path="tokens/details" element={<TokenDetails />} />
         <Route path="pools" element={<Pools />}/>
         <Route path="portfolio" element={<Portfolio />}/>
         <Route path="settings" element={<Settings />}/>
