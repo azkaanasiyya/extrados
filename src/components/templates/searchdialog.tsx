@@ -1,4 +1,4 @@
-import { Clock5, Search, XIcon, Zap } from "lucide-react";
+import { Clock5, Info, Search, XIcon, Zap } from "lucide-react";
 import { Input } from "../ui/input";
 import command from "@/assets/command.png";
 import {
@@ -108,9 +108,12 @@ export default function SearchDialog() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row px-3 items-center gap-3">
-                <Zap className="w-5 h-5 text-white-neutral-600"/>
-                <p className="text-[12px] leading-[165%] text-white-neutral-500">Trending Crypto</p>
+            <div className="flex flex-row items-center justify-between">
+                <div className="flex flex-row px-3 items-center gap-3">
+                    <Zap className="w-5 h-5 text-white-neutral-600"/>
+                    <p className="text-[12px] leading-[165%] text-white-neutral-500">Trending Crypto</p>
+                </div>
+                <Info className="w-5 h-5 text-white-neutral-600"/>            
             </div>
             <div className="flex flex-col gap-0.5 w-full">
                 <div className="flex flex-row items-center bg-white-neutral-800 border border-white-neutral-700 rounded-[8px] p-3">
