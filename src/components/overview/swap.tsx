@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 
 export default function Swap() {
     return (
-        <div className="w-full h-full flex flex-col border border-white-neutral-800 rounded-[12px] bg-white-neutral-900">
+        <div className="w-full flex flex-col border border-white-neutral-800 rounded-[12px] bg-white-neutral-900">
             <div className="px-5 pt-5 pb-4 text-[16px] leading-[160%] text-base-white font-medium">Swap</div>
             <div className="flex flex-col gap-[7px]">
                 <div className="px-5 flex flex-row items-start gap-3">
