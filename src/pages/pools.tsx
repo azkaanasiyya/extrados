@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Columns3Cog, Filter } from "lucide-react";
 import { PoolsData } from "@/data/pool";
+import { Link } from "react-router-dom";
 
 export default function Pools() {
     return (
@@ -26,26 +27,28 @@ export default function Pools() {
                 <div className="py-2.5 px-2 w-full max-w-[184px] text-end text-[12px] leading-[165%] text-white-neutral-400 font-medium">APR</div>
             </div>
             {PoolsData.map((pool, index, arr) => (
-                <div key={index} className={`mx-5 flex flex-row items-center ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
-                    <div className="px-2 py-4 flex flex-row items-center gap-2 w-full max-w-[424px]">
-                        <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
-                            <img src={pool.token1.image} alt={pool.token1.name} width={16} height={16} />
-                            <span className="text-[14px] leading-[160%] text-base-white font-bold">{pool.token1.name}</span>
+                <Link key={index} to={`/pools/details`}>
+                   <div key={index} className={`mx-5 flex flex-row items-center cursor-pointer hover:bg-white-neutral-800 ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
+                        <div className="px-2 py-4 flex flex-row items-center gap-2 w-full max-w-[424px]">
+                            <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
+                                <img src={pool.token1.image} alt={pool.token1.name} width={16} height={16} />
+                                <span className="text-[14px] leading-[160%] text-base-white font-bold">{pool.token1.name}</span>
+                            </div>
+                            <span className="font-medium text-white-neutral-300 text-[16px] leading-[160%]">/</span>
+                            <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
+                                <img src={pool.token2.image} alt={pool.token2.name} width={16} height={16} />
+                                <span className="text-[14px] leading-[160%] text-base-white font-bold">{pool.token2.name}</span>
+                            </div>
                         </div>
-                        <span className="font-medium text-white-neutral-300 text-[16px] leading-[160%]">/</span>
-                        <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
-                            <img src={pool.token2.image} alt={pool.token2.name} width={16} height={16} />
-                            <span className="text-[14px] leading-[160%] text-base-white font-bold">{pool.token2.name}</span>
+                        <div className="px-2 py-4 flex flex-row gap-2 justify-end items-center w-full max-w-[184px]">
+                            <div className="px-2.5 py-[5px] rounded-[8px] bg-white-neutral-900 text-[14px] leading-[160%] font-bold text-base-white">{pool.version}</div>
+                            <span className="text-[14px] leading-[160%] font-bold text-white-neutral-300">{pool.change}</span>
                         </div>
-                    </div>
-                    <div className="px-2 py-4 flex flex-row gap-2 justify-end items-center w-full max-w-[184px]">
-                        <div className="px-2.5 py-[5px] rounded-[8px] bg-white-neutral-900 text-[14px] leading-[160%] font-bold text-base-white">{pool.version}</div>
-                        <span className="text-[14px] leading-[160%] font-bold text-white-neutral-300">{pool.change}</span>
-                    </div>
-                    <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.tvl}</div>
-                <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.volume}</div>
-                <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.apr}</div>
-                </div>
+                        <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.tvl}</div>
+                        <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.volume}</div>
+                        <div className="px-2 py-4 text-end w-full max-w-[184px] font-bold text-[14px] leading-[160%] text-base-white">{pool.apr}</div>
+                    </div> 
+                </Link>
             ))}
         </div>
     )

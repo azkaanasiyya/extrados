@@ -1,0 +1,117 @@
+"use client"
+import { useState } from 'react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { Bar, BarChart, XAxis, YAxis } from 'recharts';
+import type { ChartConfig } from '@/components/ui/chart';
+import { TrendingUp } from 'lucide-react';
+import { volumeData } from '@/data/volume';
+import { tvlData } from '@/data/tvl';
+
+const VolumePoolDetail = () => {
+  const [activeTab, setActiveTab] = useState('volume');
+  const [activeTime, setActiveTime] = useState('1W');
+  const chartData = activeTab === 'volume' ? volumeData : tvlData;
+
+  const chartConfig: ChartConfig = {
+    volume: {
+      label: 'Volume',
+      color: '#947FFF',
+    },
+    tvl: {
+      label: 'TVL',
+      color: '#947FFF',
+    },
+  };
+
+  return (
+    <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full flex flex-col justify-between">
+      <CardHeader className="flex flex-row items-start justify-between w-full">
+        <div className="flex flex-row gap-5 items-center">
+          <button
+            onClick={() => setActiveTab('volume')}
+            className={`flex flex-col items-start gap-[2px] border-b pb-[7px] cursor-pointer ${
+              activeTab === 'volume' ? 'border-base-white text-base-white' : 'border-transparent text-white-neutral-500'
+            }`}
+          >
+            <span className={`text-[12px] leading-[165%] ${activeTab === 'volume' ? 'text-base-white' : 'text-white-neutral-500'}`}>Volume</span>
+            <div className='flex flex-row gap-2 items-center'>
+              <span className="text-[24px] leading-[140%] font-bold">$2,500.75</span>
+              <div className='flex flex-row gap-1 items-center'>
+                <TrendingUp className={`size-4 ${activeTab === 'volume' ? 'text-success-500' : 'text-white-neutral-500'}`} />
+                <span className={`text-[12px] leading-[165%] font-bold ${activeTab === 'volume' ? 'text-success-500' : 'text-white-neutral-500'}`}>6.4%</span>
+              </div>
+            </div>
+          </button>
+          <button
+            onClick={() => setActiveTab('tvl')}
+            className={`flex flex-col items-start gap-[2px] border-b pb-[7px] cursor-pointer ${
+              activeTab === 'tvl' ? 'border-base-white text-base-white' : 'border-transparent text-white-neutral-500'
+            }`}
+          >
+            <span className={`text-[12px] leading-[165%] ${activeTab === 'tvl' ? 'text-base-white' : 'text-white-neutral-500'}`}>TVL</span>
+            <div className='flex flex-row gap-2 items-center'>
+              <span className="text-[24px] leading-[140%] font-bold">$301.55B</span>
+              <div className='flex flex-row gap-1 items-center'>
+                <TrendingUp className={`size-4 ${activeTab === 'tvl' ? 'text-success-500' : 'text-white-neutral-500'}`} />
+                <span className={`text-[12px] leading-[165%] font-bold ${activeTab === 'tvl' ? 'text-success-500' : 'text-white-neutral-500'}`}>0.70%</span>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div className="flex flex-row items-center">
+          {['1H', '1D', '1W', '1M', '1Y'].map((time) => (
+            <Button
+              key={time}
+              onClick={() => setActiveTime(time)}
+              variant="overview"
+              size="small"
+              className={`text-[12px] leaading-[165%] cursor-pointer ${
+                activeTime === time ? 'bg-white-neutral-900 hover:bg-white-neutral-800 text-white' : 'bg-transparent text-white-neutral-500 hover:bg-white-neutral-800'
+              }`}
+            >
+              {time}
+            </Button>
+          ))}
+        </div>
+      </CardHeader>
+      <CardContent className="w-full">
+        <ChartContainer config={chartConfig} className="h-[196px] w-full">
+          <BarChart 
+            data={chartData}
+            barCategoryGap={1}
+          >
+            <XAxis 
+              dataKey="date" 
+              tick={{ fill: '#9CA3AF' }} 
+              axisLine={false} 
+              tickLine={false}
+            />
+            <YAxis 
+              tickFormatter={(value) => `$${value}`}
+              tick={{ 
+                fill: '#FFFFFF66', 
+                fontSize: 12, 
+                dy: 5
+              }} 
+              padding={{ bottom: 20 }} 
+              minTickGap={10}
+              axisLine={false}
+              tickLine={false}
+              tickCount={5}
+            />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <Bar
+              dataKey="value"
+              fill={chartConfig[activeTab].color}
+              radius={[4, 4, 0, 0]}
+            />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default VolumePoolDetail;

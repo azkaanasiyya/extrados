@@ -6,6 +6,7 @@ import Pools from "./pages/pools";
 import Portfolio from "./pages/portfolio";
 import Settings from "./pages/settings";
 import TokenDetails from "./pages/tokendetails";
+import PoolDetails from "./pages/pooldetails";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="tokens" element={<Tokens />}/>
         <Route path="tokens/details" element={<TokenDetails />} />
         <Route path="pools" element={<Pools />}/>
+        <Route path="pools/details" element={<PoolDetails />}/>
         <Route path="portfolio" element={<Portfolio />}/>
         <Route path="settings" element={<Settings />}/>
       </Route>
