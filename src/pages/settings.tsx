@@ -8,6 +8,7 @@ import SelectPercent from "@/components/setting/selectpercent"
 import Disconnect from "@/components/setting/diconnect"
 import { useWallet } from "@/components/context/usewallet"
 import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom"
 
 export default function Settings() {
     const [country, setCountry] = useState('english');
@@ -29,7 +30,9 @@ export default function Settings() {
                     {isWalletConnected ? (
                         <Disconnect />
                     ) : (
-                        <Button size='default' variant='default' className='cursor-pointer'>Connect Wallet</Button>
+                        <Link to="/connect">
+                            <Button size='default' variant='default' className='cursor-pointer'>Connect Wallet</Button>
+                        </Link>
                     )}
                     
                 </div>
