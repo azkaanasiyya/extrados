@@ -2,8 +2,13 @@ import { Power, XIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../ui/dialog";
 import disconnect from "@/assets/setting/disconnect.png"
+import { useWallet } from "../context/usewallet";
 
 export default function Disconnect() {
+    const { disconnectWallet } = useWallet();
+    const handleDisconnect = () => {
+        disconnectWallet();
+    }
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -24,9 +29,11 @@ export default function Disconnect() {
                         <span className="text-center text-[20px] leading-[140%] font-bold text-base-white">Are you sure?</span>
                         <span className="text-center text-[14px] leading-[160%] text-white-neutral-500">This will immediately disconnect your wallet and interupt any work in progress</span>
                     </div>
-                    <Button size="default" variant="default" className="cursor-pointer">
-                        Disconnect
-                    </Button>
+                    <DialogClose asChild>
+                        <Button onClick={handleDisconnect} size="default" variant="default" className="cursor-pointer">
+                            Disconnect
+                        </Button>
+                    </DialogClose>
                 </div>
             </DialogContent>
         </Dialog>
