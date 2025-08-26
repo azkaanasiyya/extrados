@@ -6,11 +6,14 @@ import { SelectCountry } from "@/components/setting/selectcountry"
 import { SelectCurrency } from "@/components/setting/selectcurrency"
 import SelectPercent from "@/components/setting/selectpercent"
 import Disconnect from "@/components/setting/diconnect"
+import { useWallet } from "@/components/context/usewallet"
+import { Button } from "@/components/ui/button"
 
 export default function Settings() {
     const [country, setCountry] = useState('english');
     const [currency, setCurrency] = useState('usd');
     const [percent, setPercent] = useState('10%');
+    const { isWalletConnected } = useWallet();
     return (
         <div className="flex flex-col items-center justify-center pb-6">
             <div className="max-w-[794px] w-full flex flex-col gap-5 items-center">
@@ -23,7 +26,12 @@ export default function Settings() {
                         <p className="text-[16px] leading-[160%] font-bold text-base-white">My Crypto Account</p>
                         <p className="text-[12px] leading-[165%] font-medium text-white-neutral-300">address: 0x29F57De880d4DCAE40Ba3E63F18392a32B4d44ee</p>
                     </div>
-                    <Disconnect />
+                    {isWalletConnected ? (
+                        <Disconnect />
+                    ) : (
+                        <Button size='default' variant='default' className='cursor-pointer'>Connect Wallet</Button>
+                    )}
+                    
                 </div>
                 <div className="bg-white-neutral-900 w-full border border-white-neutral-800 rounded-[12px] flex flex-col">
                     <div className="px-5 pt-5 pb-4 text-[16px] leading-[160%] font-medium text-base-white">Preferences</div>
