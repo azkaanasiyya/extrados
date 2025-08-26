@@ -1,10 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, ChevronLeft, Info } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronLeft, Info, XIcon } from "lucide-react";
 import usdc from "@/assets/pools/usdc.png"
 import eth from "@/assets/pools/ethp.png"
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import confirmation from "@/assets/pools/confirmation.png"
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import success from "@/assets/pools/success.png"
 
 export default function AddLiquidity() {
+    const [dialogStatus, setDialogStatus] = useState('idle');
+    const [openDialog, setOpenDialog] = useState(false);
+    const handleAddLiquidity = () => {
+        setOpenDialog(true);
+        setDialogStatus('waiting');
+
+        setTimeout(() => {
+            setDialogStatus('success');
+        }, 3000);
+    };
+
+    const confirmDialog = () => (
+        <>
+            <img src={confirmation} alt="confirmation" width={120} height={120} />
+            <div className="flex flex-col items-center gap-1">
+                <p className="text-[24px] leading-[140%] font-bold text-base-white">Waiting for confirmation</p>
+                <p className="text-[16px] leading-[160%] text-white-neutral-300">Supplying 0.02728 USDC and 0.00892 ETH</p>
+            </div>
+            <p className="text-[14px] leading-[160%] text-white-neutral-500">Confirm this transaction in your wallet</p>
+        </>
+    )
+
+    const successDialog = () => (
+        <>
+            <img src={success} alt="success" width={120} height={120} />
+            <div className="flex flex-col items-center gap-1">
+                <p className="text-[24px] leading-[140%] font-bold text-base-white">Transaction Submitted</p>
+                <p className="text-[16px] leading-[160%] text-white-neutral-300">Transaction successfully</p>
+            </div>
+            <div className="flex flex-col gap-4 w-full">
+                <DialogClose asChild>
+                    <Button size="default" variant="default" className="w-full cursor-pointer">Close (5s)</Button>
+                </DialogClose>
+                <Button size="default" variant="view" className="w-full cursor-pointer">View Etherscan</Button>
+            </div>
+        </>
+    )
     return (
         <div className="flex flex-col items-center justify-center pb-[140px]">
             <div className="w-full max-w-[590px] bg-white-neutral-900 rounded-[12px] border border-white-neutral-800 py-6 px-5 flex flex-col gap-6">
@@ -117,7 +158,29 @@ export default function AddLiquidity() {
                         <span className="text-[16px] leading-[160%] font-medium text-white-neutral-300">Total</span>
                         <span className="text-[16px] leading-[160%] font-bold text-base-white">$49,252.74</span>
                     </div>
-                    <Button size="default" variant="default" className="cursor-pointer w-full">Add Liquidity</Button>
+                    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+                        <DialogTrigger asChild>
+                            <Button
+                                size="default"
+                                variant="default"
+                                className="cursor-pointer w-full"
+                                onClick={handleAddLiquidity}
+                            >
+                                Add Liquidity
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent className="bg-neutral-900 w-full max-w-[368px]">
+                            <div className="flex flex-col items-center bg-white-neutral-900 rounded-[12px] border border-white-neutral-800 px-5 py-6 gap-8">
+                                <div className="w-full flex justify-end">
+                                    <DialogClose className="cursor-pointer">
+                                        <XIcon className="size-5 text-white-neutral-500" />
+                                    </DialogClose>
+                                </div>
+                                {dialogStatus === 'waiting' && confirmDialog() }
+                                {dialogStatus === 'success' && successDialog() }
+                            </div>
+                        </DialogContent>
+                    </Dialog>
                 </div>
             </div>
         </div>
