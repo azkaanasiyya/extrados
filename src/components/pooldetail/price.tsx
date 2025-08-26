@@ -1,8 +1,8 @@
-import { ArrowLeftRight, ChevronRight, Plus } from "lucide-react";
+import { ArrowLeftRight, ChevronRight } from "lucide-react";
 import usdc from "@/assets/pools/usdc.png";
 import eth from "@/assets/pools/ethp.png";
 import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
+import AddLiquidity from "@/pages/addliquidity";
 
 export default function PricePoolDetail() {
     return (
@@ -40,12 +40,7 @@ export default function PricePoolDetail() {
                         <ArrowLeftRight className="size-5 text-base-white"/>
                         Swap
                     </Button>
-                    <Link to={`/pools/addliquidity`}>
-                        <Button size="default" variant="default" className="cursor-pointer">
-                            <Plus className="size-5 text-base-white"/>
-                            Add Liquidity
-                        </Button>
-                    </Link>
+                    <AddLiquidity />
                 </div>
             </div>
         </div>
