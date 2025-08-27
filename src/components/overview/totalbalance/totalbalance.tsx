@@ -90,7 +90,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameT
 };
 
 const TotalBalance = () => {
-  const [activeTab, setActiveTab] = useState('price');
+  const [activeTab, setActiveTab] = useState('balance');
   const [activeTime, setActiveTime] = useState('1W');
 
   const chartConfig: ChartConfig = {
