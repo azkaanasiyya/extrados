@@ -7,6 +7,7 @@ import doge from "@/assets/overview/dogecoin.png"
 export const TokensData = [
     {
         name: 'Ethereum',
+        symbol: 'ETH',
         image: eth,
         price: '$2,500.75',
         balance: '25.11 ETH',
@@ -17,6 +18,7 @@ export const TokensData = [
     },
     {
         name: 'Tether USD',
+        symbol: 'USDT',
         image: tether,
         price: '$1.00',
         balance: '5.31 USDC',
@@ -27,6 +29,7 @@ export const TokensData = [
     },
     {
         name: 'USD Coin',
+        symbol: 'USDC',
         image: usd,
         price: '$1.00',
         balance: '58.52 USDC',
@@ -37,6 +40,7 @@ export const TokensData = [
     },
     {
         name: 'BNB',
+        symbol: 'BNB',
         image: bnb,
         price: '$563.12',
         balance: '45.93 BNB',
@@ -47,6 +51,7 @@ export const TokensData = [
     },
     {
         name: 'Dogecoin',
+        symbol: 'DOGE',
         image: doge,
         price: '$23.74',
         balance: '14.12 DOGE',
@@ -57,6 +62,7 @@ export const TokensData = [
     },
     {
         name: 'Ethereum',
+        symbol: 'ETH',
         image: eth,
         price: '$2,500.75',
         balance: '25.11 ETH',
@@ -67,6 +73,7 @@ export const TokensData = [
     },
     {
         name: 'Tether USD',
+        symbol: 'USDT',
         image: tether,
         price: '$1.00',
         balance: '5.31 USDC',
@@ -77,6 +84,7 @@ export const TokensData = [
     },
     {
         name: 'USD Coin',
+        symbol: 'USDC',
         image: usd,
         price: '$1.00',
         balance: '58.52 USDC',
@@ -87,6 +95,7 @@ export const TokensData = [
     },
     {
         name: 'BNB',
+        symbol: 'BNB',
         image: bnb,
         price: '$563.12',
         balance: '45.93 BNB',
@@ -97,6 +106,7 @@ export const TokensData = [
     },
     {
         name: 'BNB',
+        symbol: 'BNB',
         image: bnb,
         price: '$563.12',
         balance: '45.93 BNB',
