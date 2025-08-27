@@ -297,10 +297,8 @@ export default function SearchDialog() {
                                 <p className="text-[12px] leading-[165%] text-white-neutral-500">Recent Searches</p>
                             </div>
                             <div className="flex flex-row gap-2">
-                                {initialRecentSearches.map((item, index) => (
-                                    <Link
-                                        key={index}
-                                        to={item.type === 'token' ? `/tokens/details` : `/pools/details`}
+                                {initialRecentSearches.map((item) => (
+                                    <div
                                         className="flex flex-row px-3 py-[9px] w-full max-w-[254px] rounded-[12px] bg-white-neutral-900 hover:bg-white-neutral-800 transition-colors cursor-pointer"
                                     >
                                         {item.type === 'token' ? (
@@ -330,7 +328,7 @@ export default function SearchDialog() {
                                                 </div>
                                             </div>
                                         )}
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
                             <div className="flex flex-row items-center justify-between">
@@ -341,10 +339,8 @@ export default function SearchDialog() {
                                 <Info className="w-5 h-5 text-white-neutral-600" />
                             </div>
                             <div className="flex flex-col gap-0.5 w-full">
-                                {TokensData.slice(0, 3).map((item, index) => (
-                                    <Link
-                                        key={index}
-                                        to={`/tokens/details`}
+                                {TokensData.slice(0, 3).map((item) => (
+                                    <div
                                         className="flex flex-row items-center bg-white-neutral-900 rounded-[8px] p-3 hover:bg-white-neutral-800 transition-colors cursor-pointer"
                                     >
                                         <div className="w-full max-w-[290px] items-center justify-start flex flex-row gap-2">
@@ -359,7 +355,7 @@ export default function SearchDialog() {
                                             <span className="text-[12px] leading-[165%] font-bold text-base-white">{item.price}</span>
                                             <span className={`text-[12px] leading-[165%] font-medium ${item.change.startsWith('+') ? 'text-success-500' : 'text-danger-500'}`}>{item.change}</span>
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
                         </>
