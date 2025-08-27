@@ -3,14 +3,19 @@ import usdc from "@/assets/pools/usdc.png";
 import eth from "@/assets/pools/ethp.png";
 import { Button } from "../ui/button";
 import AddLiquidity from "@/pages/addliquidity";
+import { Link } from "react-router-dom";
 
 export default function PricePoolDetail() {
     return (
         <div className="bg-white-neutral-900 p-5 rounded-[12px] border border-white-neutral-800 w-full flex flex-col gap-4">
             <div className="flex flex-row items-center gap-2">
-                <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Overview</span>
+                <Link to={`/`} className="cursor-pointer">
+                    <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Overview</span>
+                </Link>
                 <ChevronRight className="size-5 text-white-neutral-700" />
-                <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Tokens</span>
+                <Link to={`/pools`} className="cursor-pointer">
+                    <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Pools</span>
+                </Link>
                 <ChevronRight className="size-5 text-white-neutral-700" />
                 <span className="text-[12px] leading-[165%] text-white-neutral-600">22USDC-78ETH</span>
             </div>

@@ -4,14 +4,19 @@ import { Button } from "../ui/button";
 import share from "@/assets/token/share.png";
 import www from "@/assets/token/www.png";
 import search from "@/assets/token/search.png"
+import { Link } from "react-router-dom";
 
 export default function PriceTokenDetail() {
     return (
         <div className="bg-white-neutral-900 p-5 rounded-[12px] border border-white-neutral-800 w-full flex flex-col gap-4">
             <div className="flex flex-row items-center gap-2">
-                <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Overview</span>
+                <Link to={`/`} className="cursor-pointer">
+                    <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Overview</span>
+                </Link>
                 <ChevronRight className="size-5 text-white-neutral-700" />
-                <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Tokens</span>
+                <Link to={`/tokens`} className="cursor-pointer">
+                    <span className="text-[12px] leading-[165%] font-medium text-white-neutral-300">Tokens</span>
+                </Link>
                 <ChevronRight className="size-5 text-white-neutral-700" />
                 <span className="text-[12px] leading-[165%] text-white-neutral-600">Ethereum</span>
             </div>
