@@ -67,6 +67,8 @@ const PortfolioValue = () => {
         },
     };
 
+    const uniqueDates = Array.from(new Set(portfolioData.map(d => d.date)));
+
     return (
         <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full">
             <CardHeader className="flex flex-row items-start justify-between w-full">
@@ -103,6 +105,7 @@ const PortfolioValue = () => {
                     <LineChart data={portfolioData}>
                         <XAxis
                             dataKey="date"
+                            ticks={uniqueDates}
                             tick={{ fill: '#9CA3AF' }}
                             axisLine={false}
                             tickLine={false}
