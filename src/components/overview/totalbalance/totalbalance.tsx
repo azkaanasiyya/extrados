@@ -72,8 +72,9 @@ const priceData = [
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
   if (active && payload && payload.length) {
-    const dataPoint = [...balanceData, ...priceData].find(d => d.date === label && d.value === payload[0].value);
-    
+    const dataPoint = [...balanceData, ...priceData].find(
+      d => d.date === label && d.value === payload[0].value
+    );
     const formattedPrice = dataPoint ? `$${dataPoint.price}.00` : 'N/A';
 
     return (
@@ -83,7 +84,6 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameT
           <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{label}</p>
         </div>
       </div>
-      
     );
   }
   return null;
@@ -94,18 +94,14 @@ const TotalBalance = () => {
   const [activeTime, setActiveTime] = useState('1W');
 
   const chartConfig: ChartConfig = {
-    balance: {
-      label: 'Balance',
-      color: '#ffff',
-    },
-    price: {
-      label: 'Price',
-      color: '#ffff',
-    },
+    balance: { label: 'Balance', color: '#ffff' },
+    price: { label: 'Price', color: '#ffff' },
   };
 
   const chartData = activeTab === 'balance' ? balanceData : priceData;
   const dataKey = "value";
+
+  const uniqueDates = Array.from(new Set(chartData.map(d => d.date)));
 
   return (
     <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full flex flex-col justify-between">
@@ -117,7 +113,9 @@ const TotalBalance = () => {
               activeTab === 'balance' ? 'border-base-white text-base-white' : 'border-transparent text-white-neutral-500'
             }`}
           >
-            <span className={`text-[12px] leading-[165%] text-base-white ${activeTab === 'balance' ? 'text-base-white' : 'text-white-neutral-500'}`}>Total Balance</span>
+            <span className={`text-[12px] leading-[165%] ${activeTab === 'balance' ? 'text-base-white' : 'text-white-neutral-500'}`}>
+              Total Balance
+            </span>
             <div className='flex flex-row gap-2 items-center'>
               <span className="text-[24px] leading-[140%] font-bold">$9,257.00</span>
               <div className='flex flex-row gap-1 items-center'>
@@ -132,7 +130,9 @@ const TotalBalance = () => {
               activeTab === 'price' ? 'border-base-white text-base-white' : 'border-transparent text-white-neutral-500'
             }`}
           >
-            <span className={`text-[12px] leading-[165%] text-base-white ${activeTab === 'price' ? 'text-base-white' : 'text-white-neutral-500'}`}>Price</span>
+            <span className={`text-[12px] leading-[165%] ${activeTab === 'price' ? 'text-base-white' : 'text-white-neutral-500'}`}>
+              Price
+            </span>
             <div className='flex flex-row gap-2 items-center'>
               <span className="text-[24px] leading-[140%] font-bold">$2,846.00</span>
               <div className='flex flex-row gap-1 items-center'>
@@ -161,20 +161,17 @@ const TotalBalance = () => {
       <CardContent className="w-full">
         <ChartContainer config={chartConfig} className="h-[196px] w-full">
           <LineChart data={chartData}>
-            <XAxis 
-              dataKey="date" 
-              tick={{ fill: '#9CA3AF' }} 
-              axisLine={false} 
+            <XAxis
+              dataKey="date"
+              ticks={uniqueDates}  
+              tick={{ fill: '#9CA3AF', fontSize: 12 }}
+              axisLine={false}
               tickLine={false}
             />
-            <YAxis 
-              tickFormatter={(value) => `${value}%`} 
-              tick={{ 
-                fill: '#FFFFFF66', 
-                fontSize: 12, 
-                dy: 5
-              }} 
-              padding={{ bottom: 20 }} 
+            <YAxis
+              tickFormatter={(value) => `${value}%`}
+              tick={{ fill: '#FFFFFF66', fontSize: 12, dy: 5 }}
+              padding={{ bottom: 20 }}
               minTickGap={10}
               axisLine={false}
               tickLine={false}
