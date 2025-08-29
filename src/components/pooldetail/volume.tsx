@@ -13,6 +13,7 @@ const VolumePoolDetail = () => {
   const [activeTab, setActiveTab] = useState('volume');
   const [activeTime, setActiveTime] = useState('1W');
   const chartData = activeTab === 'volume' ? volumeData : tvlData;
+  const uniqueDates = Array.from(new Set(chartData.map(d => d.date)));
 
   const chartConfig: ChartConfig = {
     volume: {
@@ -84,6 +85,7 @@ const VolumePoolDetail = () => {
           >
             <XAxis 
               dataKey="date" 
+              ticks={uniqueDates}
               tick={{ fill: '#9CA3AF' }} 
               axisLine={false} 
               tickLine={false}
