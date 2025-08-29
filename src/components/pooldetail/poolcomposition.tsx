@@ -39,6 +39,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function PoolComposition() {
+  const outerRadius = 150;
+  const innerRadius = 100;
 
   return (
     <Card className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] w-full gap-0 h-[240px]">
@@ -52,9 +54,11 @@ export function PoolComposition() {
         >
           <RadialBarChart
             data={chartData}
-            endAngle={180}
-            innerRadius={80}
-            outerRadius={130}
+            startAngle={180}
+            endAngle={0}
+            cy={outerRadius}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
           >
             <ChartTooltip
               cursor={false}
