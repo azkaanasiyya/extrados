@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card"
 import {
   ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 import type { ChartConfig } from '@/components/ui/chart';
@@ -95,6 +97,7 @@ export function ExchangeOver() {
                 })
               }}
             />
+            <ChartTooltip content={<ChartTooltipContent />} />
           </BarChart>
         </ChartContainer>
       </CardContent>
