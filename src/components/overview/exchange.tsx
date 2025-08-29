@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, XAxis } from "recharts"
 
 import {
   Card,
@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/card"
 import {
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 import type { ChartConfig } from '@/components/ui/chart';
@@ -71,20 +69,17 @@ export function ExchangeOver() {
             </div>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-5"   >
         <ChartContainer
           config={chartConfig}
-          className="h-[178px] w-full"
         >
           <BarChart
             accessibilityLayer
             data={chartData}
             barSize={3}
             barGap={2}
-            className="w-full"
-            margin={{left:0, right:0}}
           >
-            <CartesianGrid vertical={false} horizontal={false}/>
+            <Bar dataKey={"views"} fill="#26DBC9" />
             <XAxis
               dataKey="date"
               tickLine={false}
@@ -92,10 +87,14 @@ export function ExchangeOver() {
               tickCount={3}
               minTickGap={90}
               tick={{ fill: '#FFFFFF66', fontSize: 12 }}
+              tickFormatter={(value) => {
+                const date = new Date(value)
+                return date.toLocaleDateString('id-ID', {
+                  day: "numeric",
+                  month: "short",
+                })
+              }}
             />
-            <YAxis tickLine={false} axisLine={false} tick={false} /> 
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <Bar dataKey="views" fill="#26DBC9" />
           </BarChart>
         </ChartContainer>
       </CardContent>
