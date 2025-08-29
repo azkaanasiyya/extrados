@@ -15,46 +15,48 @@ import {
 } from "@/components/ui/chart"
 import type { ChartConfig } from "@/components/ui/chart"
 
-export const description = "A radial chart with stacked sections"
-
-const chartData = [{ month: "january", desktop: 1000, mobile: 680, tablet: 400, others: 400 }]
+const chartData = [{ month: "january", desktop: 400, mobile: 400, tablet: 680, others: 1000 }]
 
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#FFFFFF33",
+    color: "#947FFF",
   },
   mobile: {
     label: "Mobile",
-    color: "#26DBC9",
+    color: "#54B2E7",
   },
   tablet: {
     label: "Tablet",
-    color: "#54B2E7",
+    color: "#26DBC9",
   },
   others: {
     label: "Others",
-    color: "#947FFF",
+    color: "#FFFFFF33",
   }
 } satisfies ChartConfig
 
 export function GreedIndex() {
+    const outerRadius = 150;
+    const innerRadius = 100;
 
   return (
     <Card className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] w-full gap-0 h-full">
       <CardHeader className="items-center pb-0">
         <CardTitle className="text-[16px] leading-[160%] text-base-white font-medium">Greed Index</CardTitle>
       </CardHeader>
-      <CardContent className="w-full h-[178px] flex flex-col justify-center items-center">
+      <CardContent className="w-full flex flex-col justify-center items-center">
         <ChartContainer
           config={chartConfig}
           className="w-full h-full flex flex-col justify-center items-center"
         >
           <RadialBarChart
             data={chartData}
-            endAngle={180}
-            innerRadius={80}
-            outerRadius={130}
+            cy={outerRadius}
+            startAngle={180}
+            endAngle={0}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
           >
             <ChartTooltip
               cursor={false}
@@ -85,7 +87,7 @@ export function GreedIndex() {
                           y={(viewBox.cy || 0)}
                           className="text-[12px] leading-[165%] fill-success-500 font-medium"
                         >
-                            +8.3%
+                          +8.3%
                         </tspan>
                       </text>
                     )
