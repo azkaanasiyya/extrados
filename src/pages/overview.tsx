@@ -10,7 +10,7 @@ export default function Overview() {
     return (
         <div className="bg-neutral-900 flex flex-col items-center gap-5 justify-center">
             <div className="max-w-[1200px] w-full grid grid-cols-12 gap-5 h-[320px]">
-                <div className="col-span-8 h-full">
+                <div className="col-span-8 h-[320px]">
                     <TotalBalance />
                 </div>
                 <div className="col-span-4 h-full">
