@@ -15,19 +15,19 @@ import {
 } from "@/components/ui/chart"
 import type { ChartConfig } from "@/components/ui/chart"
 
-const chartData = [{ month: "january", desktop: 400, mobile: 400, tablet: 680, others: 1000 }]
+const chartData = [{ month: "january", bitcoin: 400, ethereum: 400, ripple: 680, others: 1000 }]
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "#947FFF",
+  bitcoin: {
+    label: "Bitcoin",
+    color: "#947FFF", 
   },
-  mobile: {
-    label: "Mobile",
-    color: "#54B2E7",
+  ethereum: {
+    label: "Ethereum",
+    color: "#54B2E7", 
   },
-  tablet: {
-    label: "Tablet",
+  ripple: {
+    label: "Ripple",
     color: "#26DBC9",
   },
   others: {
@@ -52,6 +52,7 @@ export function GreedIndex() {
         >
           <RadialBarChart
             data={chartData}
+            cx={outerRadius}
             cy={outerRadius}
             startAngle={180}
             endAngle={0}
@@ -96,22 +97,22 @@ export function GreedIndex() {
               />
             </PolarRadiusAxis>
             <RadialBar
-              dataKey="desktop"
+              dataKey="bitcoin"
               stackId="a"
               cornerRadius={5}
-              fill="var(--color-desktop)"
+              fill="var(--color-bitcoin)"
               className="stroke-transparent stroke-2"
             />
             <RadialBar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
+              dataKey="ethereum"
+              fill="var(--color-ethereum)"
               stackId="a"
               cornerRadius={5}
               className="stroke-transparent stroke-2"
             />
             <RadialBar
-              dataKey="tablet"
-              fill="var(--color-tablet)"
+              dataKey="ripple"
+              fill="var(--color-ripple)"
               stackId="a"
               cornerRadius={5}
               className="stroke-transparent stroke-2"
