@@ -104,7 +104,7 @@ const TotalBalance = () => {
   const uniqueDates = Array.from(new Set(chartData.map(d => d.date)));
 
   return (
-    <Card className="bg-neutral-900 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full flex flex-col justify-between">
+    <Card className="bg-neutral-900 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border border-white-neutral-800 w-full h-full flex flex-col justify-between">
       <CardHeader className="flex flex-row items-start justify-between w-full">
         <div className="flex flex-row gap-5 items-center">
           <button
