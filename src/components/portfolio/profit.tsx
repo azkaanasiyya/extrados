@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, type TooltipProps } from "recharts"
 
 import {
   Card,
@@ -10,12 +10,12 @@ import {
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 import type { ChartConfig } from '@/components/ui/chart';
 import { Button } from "../ui/button";
 import { useState } from "react";
+import type { NameType, ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 export const description = "An interactive bar chart"
 
@@ -134,6 +134,25 @@ export function Profit() {
         { date: "10 Nov", views: 2500 },
         ];
 
+  const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+    if (active && payload && payload.length) {
+      const dataPoint = [...chartData].find(
+        d => d.date === label && d.views === payload[0].value
+      );
+      const formattedPrice = dataPoint ? `$${dataPoint.views}.00` : 'N/A';
+
+      return (
+      <div className='bg-neutral-800 rounded-[8px]'>
+        <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700">
+          <p className="text-[12px] leading-[165%] font-semibold text-base-white">{formattedPrice}</p>
+          <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{label}</p>
+        </div>
+      </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <Card className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] w-full gap-4 h-[306px]">
       <CardHeader className="flex flex-col items-stretch w-full">
@@ -179,7 +198,7 @@ export function Profit() {
               tick={{ fill: '#FFFFFF66', fontSize: 12 }}
             />
             <YAxis dataKey="views" tickLine={false} axisLine={false} tick={{fill: '#FFFFF666', fontSize: 12}} domain={[1400, 3600]} tickFormatter={(views) => `$${views.toLocaleString()}`} /> 
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip content={<CustomTooltip />} />
             <Bar dataKey="views" fill="#947FFF" />
           </BarChart>
         </ChartContainer>
