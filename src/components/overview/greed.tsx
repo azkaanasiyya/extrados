@@ -52,7 +52,6 @@ export function GreedIndex() {
         >
           <RadialBarChart
             data={chartData}
-            cx={outerRadius}
             cy={outerRadius}
             startAngle={180}
             endAngle={0}
