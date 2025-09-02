@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
-import { Bar, BarChart, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
 import { TrendingUp } from 'lucide-react';
 import { volumeData } from '@/data/volume';
@@ -27,7 +27,7 @@ const VolumePoolDetail = () => {
   };
 
   return (
-    <Card className="bg-white-neutral-800 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border-none shadow-none w-full h-full flex flex-col justify-between">
+    <Card className="bg-neutral-900 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border border-white-neutral-800 w-full h-full flex flex-col justify-between">
       <CardHeader className="flex flex-row items-start justify-between w-full">
         <div className="flex flex-row gap-5 items-center">
           <button
@@ -81,8 +81,17 @@ const VolumePoolDetail = () => {
         <ChartContainer config={chartConfig} className="h-[196px] w-full">
           <BarChart 
             data={chartData}
-            barCategoryGap={1}
+            accessibilityLayer
           >
+            <defs>
+              <pattern id="dotted-pattern" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.2" fill="#FFFFFF14" />
+              </pattern>
+            </defs>
+            <CartesianGrid
+              stroke="none"
+              fill="url(#dotted-pattern)"
+            />
             <XAxis 
               dataKey="date" 
               ticks={uniqueDates}
