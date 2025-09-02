@@ -117,6 +117,7 @@ const VolumePoolDetail = () => {
               dataKey="value"
               fill={chartConfig[activeTab].color}
               radius={[4, 4, 0, 0]}
+              barSize={5}
             />
           </BarChart>
         </ChartContainer>
