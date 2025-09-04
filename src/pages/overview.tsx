@@ -21,7 +21,7 @@ export default function Overview() {
                 <div className="col-span-4">
                     <SalesStatistic />
                 </div>
-                <div className="col-span-4">
+                <div className="col-span-4 h-[240px]">
                     <ExchangeOver />
                 </div>
                 <div className="col-span-4">

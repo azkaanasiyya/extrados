@@ -61,8 +61,8 @@ export function ExchangeOver() {
     ];
 
   return (
-    <Card className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] w-full gap-0">
-      <CardHeader className="flex flex-col items-stretch w-full pb-4">
+    <Card className="bg-white-neutral-900 border border-white-neutral-800 py-0 flex flex-col items-center justify-center rounded-[12px] w-full gap-0">
+      <CardHeader className="flex flex-col items-stretch w-full pt-5 pb-4">
         <div className="flex flex-row justify-between w-full items-center">
             <span className="text-[16px] leading-[160%] font-medium text-base-white">Exchange Over</span>
             <div className="flex flex-row gap-1 items-center">
@@ -74,6 +74,7 @@ export function ExchangeOver() {
       <CardContent className="px-5"   >
         <ChartContainer
           config={chartConfig}
+          className="max-h-[177px]"
         >
           <BarChart
             accessibilityLayer
