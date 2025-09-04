@@ -71,7 +71,7 @@ export function SalesStatistic() {
         </div>
       </CardHeader>
       <CardContent className="px-5"> 
-        <ChartContainer config={chartConfig} className="max-h-[177px]">
+        <ChartContainer config={chartConfig} className="h-[177px]">
           <BarChart 
             accessibilityLayer 
             data={chartData}

@@ -74,7 +74,7 @@ export function ExchangeOver() {
       <CardContent className="px-5"   >
         <ChartContainer
           config={chartConfig}
-          className="max-h-[177px]"
+          className="h-[177px] w-full"
         >
           <BarChart
             accessibilityLayer
