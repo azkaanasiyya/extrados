@@ -1,125 +1,90 @@
 "use client"
 
-import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
-
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
-import type { ChartConfig } from "@/components/ui/chart"
+import { motion } from "framer-motion"
 
-export const description = "A radial chart with stacked sections"
-
-const chartData = [{ month: "january", desktop: 1000, mobile: 680, tablet: 400, others: 400 }]
-
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "#FFFFFF33",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "#26DBC9",
-  },
-  tablet: {
-    label: "Tablet",
-    color: "#54B2E7",
-  },
-  others: {
-    label: "Others",
-    color: "#947FFF",
-  }
-} satisfies ChartConfig
+import ChartBackground from "@/assets/overview/background.svg?react"
+import ChartUngu from "@/assets/overview/purple.svg?react"
+import ChartBiru from "@/assets/overview/blue.svg?react"
+import ChartHijau from "@/assets/overview/green.svg?react"
+import Gradient from "@/assets/overview/bgradient.svg?react"
 
 export function PoolComposition() {
-  const outerRadius = 150;
-  const innerRadius = 100;
-
   return (
     <Card className="bg-white-neutral-900 border border-white-neutral-800 rounded-[12px] w-full gap-0 h-[240px]">
       <CardHeader className="items-center pb-0">
         <CardTitle className="text-[16px] leading-[160%] text-base-white font-medium">Pool Composition</CardTitle>
       </CardHeader>
-      <CardContent className="w-full h-[178px] flex flex-col justify-center items-center">
-        <ChartContainer
-          config={chartConfig}
-          className="w-full h-full flex flex-col justify-center items-center"
-        >
-          <RadialBarChart
-            data={chartData}
-            startAngle={180}
-            endAngle={0}
-            cy={outerRadius}
-            innerRadius={innerRadius}
-            outerRadius={outerRadius}
+      <CardContent className="relative w-full flex flex-col justify-center items-center">
+        <div className="w-[250px] h-[130px] relative">
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }} 
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
-              <Label
-                content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                    return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) - 45}
-                          className="text-[12px] leading-[165%] fill-white-neutral-500 font-medium"
-                        >
-                          Total Liquidity
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) - 18}
-                          className="text-[24px] leading-[140%] font-bold fill-base-white"
-                        >
-                          $169,7M
-                        </tspan>
-                      </text>
-                    )
-                  }
-                }}
-              />
-            </PolarRadiusAxis>
-            <RadialBar
-              dataKey="desktop"
-              stackId="a"
-              cornerRadius={5}
-              fill="var(--color-desktop)"
-              className="stroke-transparent stroke-2"
-            />
-            <RadialBar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
-              stackId="a"
-              cornerRadius={5}
-              className="stroke-transparent stroke-2"
-            />
-            <RadialBar
-              dataKey="tablet"
-              fill="var(--color-tablet)"
-              stackId="a"
-              cornerRadius={5}
-              className="stroke-transparent stroke-2"
-            />
-            <RadialBar
-              dataKey="others"
-              fill="var(--color-others)"
-              stackId="a"
-              cornerRadius={5}
-              className="stroke-transparent stroke-2"
-            />
-          </RadialBarChart>
-        </ChartContainer>
+            <ChartBackground />
+          </motion.div>
+
+          <motion.div
+            className="absolute top-15.5 left-[-3px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <ChartUngu />
+          </motion.div>
+          
+          <motion.div
+            className="absolute top-4.5 left-4.5"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          >
+            <ChartBiru />
+          </motion.div>
+          
+          <motion.div
+            className="absolute left-16 top-[-1px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
+            <ChartHijau />
+          </motion.div>
+            
+          <motion.div
+            className="absolute top-6 left-5"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: "backIn" }}
+          >
+            <Gradient  />
+          </motion.div>
+          
+          <motion.div
+            className="absolute top-14 left-18 flex flex-col items-center justify-center gap-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "backIn" }}
+          >
+            <span className="text-[12px] leading-[165%] font-medium text-center text-white-neutral-500">Total Liquidity</span>
+            <span className="text-[24px] leading-[140%] font-bold text-center text-base-white">$169,7M</span>
+          </motion.div>
+        </div>
+      </CardContent>
+      <CardContent className="flex flex-row w-full justify-between items-center pt-2 px-[42px]">
+        <p className="text-[12px] leading-[165%] font-medium text-white-neutral-500">
+          USDC: 21.19%
+        </p>
+        <p className="text-[12px] leading-[165%] font-medium text-white-neutral-500">
+          ETH: 78.81%
+        </p>
       </CardContent>
     </Card>
   )
