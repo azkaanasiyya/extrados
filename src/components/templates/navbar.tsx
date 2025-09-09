@@ -10,7 +10,7 @@ export default function Navbar() {
     const { isWalletConnected, walletAddress } = useWallet();
     return (
         <div className="bg-white-neutral-900 flex flex-col justify-center items-center w-full">
-            <div className="max-w-[1376px] w-full py-4 flex flex-row justify-between items-center">
+            <div className="max-w-[1376px] w-full py-4 px-8 flex flex-row justify-between items-center">
                 <img src={logo} alt="logo" />
                 <SearchDialog/>
                 <div className='flex flex-row gap-5 items-center'>
