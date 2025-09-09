@@ -10,10 +10,11 @@ import {
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 import type { ChartConfig } from '@/components/ui/chart';
+import type { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
+import type { TooltipProps } from 'recharts';
 
 const chartConfig = {
   views: {
@@ -23,39 +24,63 @@ const chartConfig = {
 } satisfies ChartConfig
 
 const chartData = [
-    { "date": "2024-08-12", "views": 222 },
-    { "date": "2024-08-13", "views": 97 },
-    { "date": "2024-08-14", "views": 184 },
-    { "date": "2024-08-15", "views": 145 },
-    { "date": "2024-08-16", "views": 310 },
-    { "date": "2024-08-17", "views": 201 },
-    { "date": "2024-08-18", "views": 156 },
-    { "date": "2024-08-19", "views": 267 },
-    { "date": "2024-08-20", "views": 142 },
-    { "date": "2024-08-21", "views": 389 },
-    { "date": "2024-08-22", "views": 174 },
-    { "date": "2024-08-23", "views": 251 },
-    { "date": "2024-08-24", "views": 133 },
-    { "date": "2024-08-25", "views": 298 },
-    { "date": "2024-08-26", "views": 185 },
-    { "date": "2024-08-27", "views": 240 },
-    { "date": "2024-08-28", "views": 119 },
-    { "date": "2024-08-29", "views": 311 },
-    { "date": "2024-08-30", "views": 205 },
-    { "date": "2024-08-31", "views": 274 },
-    { "date": "2024-09-01", "views": 188 },
-    { "date": "2024-09-02", "views": 342 },
-    { "date": "2024-09-03", "views": 159 },
-    { "date": "2024-09-04", "views": 242 },
-    { "date": "2024-09-05", "views": 267 },
-    { "date": "2024-09-06", "views": 194 },
-    { "date": "2024-09-07", "views": 328 },
-    { "date": "2024-09-08", "views": 211 },
-    { "date": "2024-09-09", "views": 175 },
-    { "date": "2024-09-10", "views": 356 },
-    { "date": "2024-09-11", "views": 223 },
-    { "date": "2024-09-12", "views": 373 }
+  { "date": "2024-08-12", "views": 222 },
+  { "date": "2024-08-13", "views": 97 },
+  { "date": "2024-08-14", "views": 184 },
+  { "date": "2024-08-15", "views": 145 },
+  { "date": "2024-08-16", "views": 310 },
+  { "date": "2024-08-17", "views": 201 },
+  { "date": "2024-08-18", "views": 156 },
+  { "date": "2024-08-19", "views": 267 },
+  { "date": "2024-08-20", "views": 142 },
+  { "date": "2024-08-21", "views": 389 },
+  { "date": "2024-08-22", "views": 174 },
+  { "date": "2024-08-23", "views": 251 },
+  { "date": "2024-08-24", "views": 133 },
+  { "date": "2024-08-25", "views": 298 },
+  { "date": "2024-08-26", "views": 185 },
+  { "date": "2024-08-27", "views": 240 },
+  { "date": "2024-08-28", "views": 119 },
+  { "date": "2024-08-29", "views": 311 },
+  { "date": "2024-08-30", "views": 205 },
+  { "date": "2024-08-31", "views": 274 },
+  { "date": "2024-09-01", "views": 188 },
+  { "date": "2024-09-02", "views": 342 },
+  { "date": "2024-09-03", "views": 159 },
+  { "date": "2024-09-04", "views": 242 },
+  { "date": "2024-09-05", "views": 267 },
+  { "date": "2024-09-06", "views": 194 },
+  { "date": "2024-09-07", "views": 328 },
+  { "date": "2024-09-08", "views": 211 },
+  { "date": "2024-09-09", "views": 175 },
+  { "date": "2024-09-10", "views": 356 },
+  { "date": "2024-09-11", "views": 223 },
+  { "date": "2024-09-12", "views": 373 }
 ];
+
+const CustomSalesTooltip = ({ active, payload }: TooltipProps<ValueType, NameType>) => {
+  if (active && payload && payload.length) {
+    const dataPoint = payload[0].payload;
+    const views = dataPoint.views;
+    const date = new Date(dataPoint.date);
+
+    const formattedDate = date.toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+    return (
+      <div className='bg-neutral-900 rounded-[8px]'>
+        <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700">
+          <p className="text-[12px] leading-[165%] font-semibold text-base-white">{`${views} Views`}</p>
+          <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{formattedDate}</p>
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
 
 export function SalesStatistic() {
   
@@ -94,7 +119,7 @@ export function SalesStatistic() {
                   })
                 }}
               /> 
-              <ChartTooltip content={<ChartTooltipContent />} />
+              <ChartTooltip content={<CustomSalesTooltip />} />
           </BarChart>
         </ChartContainer>
       </CardContent>
