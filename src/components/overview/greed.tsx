@@ -71,11 +71,16 @@ export function GreedIndex() {
             <Gradient  />
           </motion.div>
           
-          <div className="absolute top-13 left-23.5 flex flex-col items-center justify-center gap-0.5">
+          <motion.div
+            className="absolute top-13 left-23.5 flex flex-col items-center justify-center gap-0.5"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "backIn" }}
+          >
             <span className="text-[12px] leading-[165%] font-medium text-center text-white-neutral-500">Greed</span>
             <span className="text-[24px] leading-[140%] font-bold text-center text-base-white">75%</span>
             <span className="text-[12px] leading-[165%] font-medium text-center text-success-500">+8.3%</span>
-          </div>
+          </motion.div>
         </div>
       </CardContent>
 
