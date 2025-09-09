@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../ui/dialog";
 import disconnect from "@/assets/setting/disconnect.png"
 import { useWallet } from "../context/usewallet";
+import { motion } from "framer-motion"
 
 export default function Disconnect() {
     const { disconnectWallet } = useWallet();
@@ -24,7 +25,18 @@ export default function Disconnect() {
                             <XIcon className="size-5 text-white-neutral-500" />
                         </DialogClose>
                     </div>
-                    <img src={disconnect} alt="disconnect" width={120} height={120} />
+                    <motion.img
+                        src={disconnect}
+                        alt="disconnect"
+                        width={120}
+                        height={120}
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            repeat: Infinity, 
+                            duration: 5,
+                            ease: "linear", 
+                        }}
+                    />
                     <div className="flex flex-col items-center gap-1">
                         <span className="text-center text-[20px] leading-[140%] font-bold text-base-white">Are you sure?</span>
                         <span className="text-center text-[14px] leading-[160%] text-white-neutral-500">This will immediately disconnect your wallet and interupt any work in progress</span>
