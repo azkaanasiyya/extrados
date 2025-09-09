@@ -39,7 +39,7 @@ export function GreedIndex() {
             className="absolute top-15.5 left-[-3px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <ChartUngu />
           </motion.div>
@@ -48,7 +48,7 @@ export function GreedIndex() {
             className="absolute top-4.5 left-4.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           >
             <ChartBiru />
           </motion.div>
@@ -57,7 +57,7 @@ export function GreedIndex() {
             className="absolute left-16 top-[-1px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
             <ChartHijau />
           </motion.div>
@@ -66,7 +66,7 @@ export function GreedIndex() {
             className="absolute top-6 left-5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: "backIn" }}
+            transition={{ duration: 0.6, delay: 0.7, ease: "backIn" }}
           >
             <Gradient  />
           </motion.div>
@@ -75,7 +75,7 @@ export function GreedIndex() {
             className="absolute top-13 left-23.5 flex flex-col items-center justify-center gap-0.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: "backIn" }}
+            transition={{ duration: 0.6, delay: 0.8, ease: "backIn" }}
           >
             <span className="text-[12px] leading-[165%] font-medium text-center text-white-neutral-500">Greed</span>
             <span className="text-[24px] leading-[140%] font-bold text-center text-base-white">75%</span>
