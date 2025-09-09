@@ -6,6 +6,7 @@ import { useState, type SetStateAction } from "react";
 import confirmation from "@/assets/pools/confirmation.png";
 import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import success from "@/assets/pools/success.png";
+import { motion } from "framer-motion"
 
 interface AddLiquidityFormProps {
     setDialogStatus: React.Dispatch<React.SetStateAction<string>>;
@@ -143,7 +144,18 @@ const AddLiquidityForm: React.FC<AddLiquidityFormProps> = ({ setDialogStatus, on
 
 const ConfirmationDialog = () => (
     <>
-        <img src={confirmation} alt="confirmation" width={120} height={120} />
+        <motion.img
+            src={confirmation}
+            alt="confirmation"
+            width={120}
+            height={120}
+            animate={{ rotate: 360 }}
+            transition={{
+                repeat: Infinity, 
+                duration: 5,
+                ease: "linear", 
+            }}
+        />
         <div className="flex flex-col items-center gap-1">
             <p className="text-[24px] leading-[140%] font-bold text-base-white">Waiting for confirmation</p>
             <p className="text-[16px] leading-[160%] text-white-neutral-300">Supplying 0.02728 USDC and 0.00892 ETH</p>
@@ -154,7 +166,18 @@ const ConfirmationDialog = () => (
 
 const SuccessDialog = () => (
     <>
-        <img src={success} alt="success" width={120} height={120} />
+        <motion.img
+            src={success}
+            alt="success"
+            width={120}
+            height={120}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.8,
+                ease: "linear", 
+            }}
+        />
         <div className="flex flex-col items-center gap-1">
             <p className="text-[24px] leading-[140%] font-bold text-base-white">Transaction Submitted</p>
             <p className="text-[16px] leading-[160%] text-white-neutral-300">Transaction successfully</p>
