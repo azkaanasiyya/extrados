@@ -223,7 +223,7 @@ export default function SearchDialog() {
             <DialogTrigger asChild>
                 <div className="relative w-full max-w-[400px] cursor-pointer">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2">
-                        <Search className="w-4 h-4 text-white-neutral-600" />
+                        <Search className="w-4 h-4 text-base-white opacity-40" />
                     </span>
                     <Input
                         placeholder="Search"
@@ -242,7 +242,7 @@ export default function SearchDialog() {
                     <div className="flex flex-row items-center gap-2">
                         <div className="relative w-[750px]">
                             <span className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <Search className="w-4 h-4 text-white-neutral-600" />
+                                <Search className="w-4 h-4 text-base-white opacity-40" />
                             </span>
                             <Input
                                 placeholder="Search tokens or pools"
@@ -254,7 +254,7 @@ export default function SearchDialog() {
                                 onClick={handleClearSearch}
                                 className="cursor-pointer absolute right-14 top-1/2 -translate-y-1/2 text-white-neutral-500 hover:text-white-neutral-300 transition-colors"
                             >
-                                <CircleX className="w-5 h-5 text-white-neutral-500" />
+                                <CircleX className="w-5 h-5 text-base-white opacity-40" />
                             </button>
                             <img
                                 alt="command"
@@ -263,7 +263,7 @@ export default function SearchDialog() {
                             />
                         </div>
                         <DialogClose className="cursor-pointer">
-                            <XIcon className="size-5 text-white-neutral-500" />
+                            <XIcon className="size-5 text-base-white opacity-40" />
                         </DialogClose>
                     </div>
                     {isSearching ? (

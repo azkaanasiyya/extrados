@@ -15,13 +15,19 @@ export default function Navbar() {
                 <SearchDialog/>
                 <div className='flex flex-row gap-5 items-center'>
                     <div className='flex flex-row gap-3 items-center border-r border-white-neutral-800 pr-5'>
-                        <Notification />
-                        <Gift className='size-6 text-white-neutral-500 cursor-pointer'/>
-                        <CirclePlus className='size-6 text-white-neutral-500 cursor-pointer'/>
+                        <div className="text-white cursor-pointer">
+                            <Notification />
+                        </div>
+                        <div className="text-white cursor-pointer opacity-40">
+                            <Gift className='size-6'/>
+                        </div>
+                        <div className="text-white cursor-pointer opacity-40">
+                            <CirclePlus className='size-6'/>
+                        </div>
                     </div>
                     {isWalletConnected ? (
                         <Button size='default' variant='default' className='cursor-pointer'>
-                            {walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}
+                            {walletAddress.substring(0, 0)}...{walletAddress.substring(walletAddress.length - 4)}
                         </Button>
                     ) : (
                         <Link to="/connect">
