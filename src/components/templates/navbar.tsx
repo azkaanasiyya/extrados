@@ -27,7 +27,7 @@ export default function Navbar() {
                     </div>
                     {isWalletConnected ? (
                         <Button size='default' variant='default' className='cursor-pointer'>
-                            {walletAddress.substring(0, 0)}...{walletAddress.substring(walletAddress.length - 4)}
+                            {walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}
                         </Button>
                     ) : (
                         <Link to="/connect">
