@@ -240,7 +240,7 @@ export default function PoolsDetails() {
                     <div className="flex flex-col items-center bg-white-neutral-900 rounded-[12px] border border-white-neutral-800 py-6 px-5 gap-6">
                         <div className="w-full flex justify-end">
                             <DialogClose className="cursor-pointer">
-                                <XIcon className="size-5 text-white-neutral-500" />
+                                <XIcon className="size-5 text-base-white opacity-40" />
                             </DialogClose>
                         </div>
                         {renderConfirmContent()}

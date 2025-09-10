@@ -71,7 +71,7 @@ const CustomSalesTooltip = ({ active, payload }: TooltipProps<ValueType, NameTyp
     });
 
     return (
-      <div className='bg-neutral-900 rounded-[8px]'>
+      <div className='bg-neutral-800 rounded-[8px]'>
         <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700">
           <p className="text-[12px] leading-[165%] font-semibold text-base-white">{`${views} Views`}</p>
           <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{formattedDate}</p>
@@ -102,6 +102,8 @@ export function SalesStatistic() {
             data={chartData}
             barSize={3}
             barGap={2}
+            className="w-full"
+            margin={{left:0, right:0}}
             >
               <Bar dataKey={"views"} fill="#947FFF" />
               <XAxis 
