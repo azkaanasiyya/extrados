@@ -15,7 +15,7 @@ export function Notification() {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <Bell className={`size-6 cursor-pointer ${isOpen ? 'text-base-white' : 'text-white-neutral-500'}`}/>
+        <Bell className={`size-6 cursor-pointer opacity-40 hover:opacity-80 ${isOpen ? 'text-base-white' : 'text-base-white'}`}/>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-[#1D1B2C] w-[440px] rounded-[8px] border border-white-neutral-700 p-0" align="center">
         <DropdownMenuLabel className="p-0">
