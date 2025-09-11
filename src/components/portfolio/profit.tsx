@@ -208,8 +208,8 @@ export function Profit() {
               tick={{ fill: '#FFFFFF66', fontSize: 12 }}
             />
             <YAxis dataKey="views" tickLine={false} axisLine={false} tick={{fill: '#FFFFF666', fontSize: 12}} domain={[1400, 3600]} tickFormatter={(views) => `$${views.toLocaleString()}`} /> 
-            <ChartTooltip content={<CustomTooltip />} />
-            <Bar dataKey="views" fill="#947FFF" />
+            <ChartTooltip content={<CustomTooltip />} cursor={false}/>
+            <Bar dataKey="views" fill="#947FFF" activeBar={{ fill: '#D8D4FF' }} />
           </BarChart>
         </ChartContainer>
       </CardContent>

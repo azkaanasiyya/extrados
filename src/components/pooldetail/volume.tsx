@@ -142,12 +142,13 @@ const VolumePoolDetail = () => {
               tickLine={false}
               tickCount={5}
             />
-            <ChartTooltip content={<CustomVolumeTooltip activeTab={activeTab} />} />
+            <ChartTooltip content={<CustomVolumeTooltip activeTab={activeTab} />} cursor={false} />
             <Bar
               dataKey="value"
               fill={chartConfig[activeTab].color}
               radius={[4, 4, 0, 0]}
               barSize={5}
+              activeBar={{ fill: '#D8D4FF' }}
             />
           </BarChart>
         </ChartContainer>

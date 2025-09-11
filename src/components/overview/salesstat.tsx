@@ -101,11 +101,11 @@ export function SalesStatistic() {
             accessibilityLayer 
             data={chartData}
             barSize={3}
-            barGap={2}
+            barGap={0}
             className="w-full"
             margin={{left:0, right:0}}
             >
-              <Bar dataKey={"views"} fill="#947FFF" />
+              <Bar dataKey={"views"} fill="#947FFF" activeBar={{ fill: '#D8D4FF' }} />
               <XAxis 
                 dataKey="date" 
                 tickLine={false} 
@@ -121,7 +121,7 @@ export function SalesStatistic() {
                   })
                 }}
               /> 
-              <ChartTooltip content={<CustomSalesTooltip />} />
+              <ChartTooltip content={<CustomSalesTooltip />} cursor={false}/>
           </BarChart>
         </ChartContainer>
       </CardContent>
