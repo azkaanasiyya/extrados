@@ -107,7 +107,7 @@ export function ExchangeOver() {
             barSize={3}
             barGap={2}
           >
-            <Bar dataKey={"views"} fill="#26DBC9" />
+            <Bar dataKey={"views"} fill="#26DBC9" activeBar={{ fill: '#95FAE9' }} />
             <XAxis
               dataKey="date"
               tickLine={false}
@@ -123,7 +123,7 @@ export function ExchangeOver() {
                 })
               }}
             />
-            <ChartTooltip content={<CustomExchangeTooltip />} />
+            <ChartTooltip content={<CustomExchangeTooltip />} cursor={false}/>
           </BarChart>
         </ChartContainer>
       </CardContent>
