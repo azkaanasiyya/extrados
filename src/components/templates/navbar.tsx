@@ -18,10 +18,10 @@ export default function Navbar() {
                         <div className="text-white cursor-pointer">
                             <Notification />
                         </div>
-                        <div className="text-white cursor-pointer opacity-40">
+                        <div className="text-white cursor-pointer opacity-40 hover:opacity-80">
                             <Gift className='size-6'/>
                         </div>
-                        <div className="text-white cursor-pointer opacity-40">
+                        <div className="text-white cursor-pointer opacity-40 hover:opacity-80">
                             <CirclePlus className='size-6'/>
                         </div>
                     </div>
