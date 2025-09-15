@@ -1,6 +1,6 @@
 import btc from "@/assets/portfolio/bitcoin.png"
-import eth from "@/assets/pools/ethp.png"
-import usdc from "@/assets/pools/usdc.png"
+import eth from "@/assets/overview/ethereum.png"
+import usdc from "@/assets/overview/usd.png"
 
 export default function Assets() {
     return (
@@ -23,9 +23,7 @@ export default function Assets() {
             </div>
             <div className="mx-5 flex flex-row justify-between items-center py-4 border-b border-white-neutral-800">
                 <div className="flex flex-row gap-2 items-center">
-                    <div className="w-9 h-9 flex flex-col items-center justify-center bg-white-neutral-900 border border-white-neutral-800 rounded-full">
-                        <img src={eth} alt="eth" width={16} height={16} />
-                    </div>
+                    <img src={eth} alt="btc" width={36} height={36} />
                     <div className="flex flex-col w-full">
                         <span className="text-[14px] leading-[160%] font-bold text-base-white">ETH</span>
                         <span className="text-[12px] leading-[165%] text-white-neutral-300">Ethereum</span>
@@ -38,15 +36,12 @@ export default function Assets() {
             </div>
             <div className="mx-5 flex flex-row justify-between items-center py-4">
                 <div className="flex flex-row gap-2 items-center">
-                   <div className="w-9 h-9 flex flex-col items-center justify-center bg-white-neutral-900 border border-white-neutral-800 rounded-full">
-                        <img src={usdc} alt="usdc" width={16} height={16} />
-                    </div>
+                    <img src={usdc} alt="btc" width={36} height={36} />
                     <div className="flex flex-col w-full">
                         <span className="text-[14px] leading-[160%] font-bold text-base-white">USDC</span>
                         <span className="text-[12px] leading-[165%] text-white-neutral-300">USD Coin</span>
                     </div> 
                 </div>
-                
                 <div className="flex flex-col items-end">
                     <span className="text-[14px] leading-[160%] font-bold text-base-white">$192.39</span>
                     <span className="text-[12px] leading-[165%] text-danger-500">-$8.61 (0.09%)</span>

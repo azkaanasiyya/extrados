@@ -1,5 +1,6 @@
-import { FolderInput, Plus } from "lucide-react";
 import { Button } from "../ui/button";
+import file from "@/assets/portfolio/export.png"
+import AddLiquidity from "@/pages/addliquidity";
 
 export default function Price() {
     return (
@@ -13,12 +14,9 @@ export default function Price() {
                 </div>
             </div>
             <div className="flex flex-row items-center gap-3">
+                <AddLiquidity />
                 <Button variant="swap" size="default" className="cursor-pointer">
-                    <Plus className="w-5 h-5 text-base-white" />
-                    Add Liquidity
-                </Button>
-                <Button variant="swap" size="default" className="cursor-pointer">
-                    <FolderInput className="w-5 h-5 text-base-white" />
+                    <img src={file} alt="file" width={20} height={20} />
                     Export
                 </Button>
             </div>
