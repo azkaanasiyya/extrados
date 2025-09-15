@@ -18,9 +18,6 @@ export default function Tokens() {
                        <Columns3Cog className="w-4 h-4 text-base-white" />
                         Customize
                     </Button>
-                    <Button variant="swap" size="default" className="cursor-pointer">
-                        Details
-                    </Button>
                 </div>
             </div>
             <TableHeader>
@@ -53,11 +50,11 @@ export default function Tokens() {
                                     <img src={token.image} alt={token.name} className="w-9 h-9" />
                                     <span className="text-[14px] leading-[160%] text-base-white font-bold">{token.name}</span>
                                 </TableCell>
-                                <TableCell className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.price}</TableCell>
-                                <TableCell className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.balance}</TableCell>
-                                <TableCell className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.marketCap}</TableCell>
-                                <TableCell className="py-4 px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.volume}</TableCell>
-                                <TableCell className="py-4 px-6 w-full max-w-[216px] flex flex-row gap-1.5 items-center">
+                                <TableCell className="py-[23px] px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.price}</TableCell>
+                                <TableCell className="py-[23px] px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.balance}</TableCell>
+                                <TableCell className="py-[23px] px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.marketCap}</TableCell>
+                                <TableCell className="py-[23px] px-2 w-full max-w-[184px] text-end text-[14px] leading-[160%] text-base-white font-bold">{token.volume}</TableCell>
+                                <TableCell className="py-[23px] px-6 w-full max-w-[216px] flex flex-row gap-1.5 items-center">
                                     <div className="flex flex-row gap-[3px]">
                                         {allBars}
                                     </div>
