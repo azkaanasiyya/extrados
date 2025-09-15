@@ -1,14 +1,16 @@
 import Navbar from "../components/templates/navbar";
 import Navigation from "@/components/templates/nav";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function PageTemplate() {
+    const location = useLocation();
+    const showNavigation = location.pathname !== "/connect";
     return (
         <div className="bg-neutral-900">
            <Navbar/>
            <div className="py-6 w-full flex flex-col justify-center items-center">
                 <div className="max-w-[1200px] w-full flex flex-col gap-6">
-                    <Navigation /> 
+                    {showNavigation && <Navigation />}
                     <main>
                         <Outlet />
                     </main>
