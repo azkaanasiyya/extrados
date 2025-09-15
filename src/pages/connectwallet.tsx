@@ -55,7 +55,7 @@ export default function ConnectWallet() {
                         </div>
                     </div>
                 </div>
-                <div className="w-full max-w-[473px] flex flex-col p-10 gap-8 rounded-[12px] items-center bg-white-neutral-900 border border-white-neutral-800">
+                <div className="bg-[url('/src/assets/connect/bg-connect.png')] bg-no-repeat bg-cover bg-top w-full max-w-[473px] flex flex-col p-10 gap-8 rounded-[12px] items-center bg-white-neutral-900 border border-white-neutral-800">
                     <div className="flex flex-col gap-5 items-center">
                         <img src={extrados} alt="extrados" width={32} height={32} />
                         <div className="flex flex-col items-center gap-1">

@@ -22,8 +22,8 @@ export default function App() {
           <Route path="pools/details" element={<PoolDetails />}/>
           <Route path="portfolio" element={<Portfolio />}/>
           <Route path="settings" element={<Settings />}/>
+          <Route path="/connect" element={<ConnectWallet />} />
         </Route>
-        <Route path="/connect" element={<ConnectWallet />} />
       </Routes>
     </WalletProvider>
     

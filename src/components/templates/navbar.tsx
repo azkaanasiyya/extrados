@@ -1,5 +1,5 @@
 import logo from '@/assets/logo.svg'
-import { CirclePlus, Gift } from 'lucide-react'
+import { CirclePlus, Gift, Wallet } from 'lucide-react'
 import { Button } from '../ui/button'
 import SearchDialog from './searchdialog'
 import { Notification } from './notif'
@@ -27,6 +27,7 @@ export default function Navbar() {
                     </div>
                     {isWalletConnected ? (
                         <Button size='default' variant='default' className='cursor-pointer'>
+                            <Wallet size={20} className='text-base-white' />
                             {walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}
                         </Button>
                     ) : (
