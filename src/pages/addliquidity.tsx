@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, ChevronLeft, Info, Plus, XIcon } from "lucide-react";
+import { ArrowRight, ChevronLeft, Info, Plus, XIcon } from "lucide-react";
 import usdc from "@/assets/pools/usdc.png";
 import eth from "@/assets/pools/ethp.png";
 import { useState, type SetStateAction } from "react";
@@ -7,6 +7,8 @@ import confirmation from "@/assets/pools/confirmation.png";
 import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import success from "@/assets/pools/success.png";
 import { motion } from "framer-motion"
+import { SelectCurrency } from "@/components/setting/selectcurrency";
+import SelectPercent from "@/components/pooldetail/selectpercent";
 
 interface AddLiquidityFormProps {
     setDialogStatus: React.Dispatch<React.SetStateAction<string>>;
@@ -20,6 +22,8 @@ const AddLiquidityForm: React.FC<AddLiquidityFormProps> = ({ setDialogStatus, on
             setDialogStatus("success");
         }, 3000);
     };
+    const [currency, setCurrency] = useState('usd');
+    const [percent, setPercent] = useState('0.50%');
 
     return (
         <>
@@ -28,10 +32,7 @@ const AddLiquidityForm: React.FC<AddLiquidityFormProps> = ({ setDialogStatus, on
                     <ChevronLeft className="size-6 text-base-white" />
                     <span className="text-[16px] leading-[160%] font-medium text-base-white">Add Liquidity</span>
                 </button>
-                <Button size="default" variant="default" className="cursor-pointer">
-                    USD
-                    <ChevronDown className="size-5 text-base-white" />
-                </Button>
+                <SelectCurrency value={currency} onValueChange={setCurrency} defaultValue="usd"/>
             </div>
             <div className="flex flex-col gap-4 w-full">
                 <div className="bg-neutral-900 rounded-[8px] p-4 flex flex-col gap-3 w-full">
@@ -80,10 +81,7 @@ const AddLiquidityForm: React.FC<AddLiquidityFormProps> = ({ setDialogStatus, on
                         <span className="text-[14px] leading-[160%] font-medium text-white-neutral-300">Slippage</span>
                         <Info className="size-4 text-white-neutral-700" />
                     </div>
-                    <Button size="default" variant="default" className="cursor-pointer">
-                        0.50%
-                        <ChevronDown className="size-5 text-base-white" />
-                    </Button>
+                    <SelectPercent value={percent} onValueChange={setPercent} defaultValue="0.50%"/>
                 </div>
                 <div className="flex flex-row items-center justify-between">
                     <div className="flex flex-row items-center gap-1">
