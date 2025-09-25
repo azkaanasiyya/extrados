@@ -6,7 +6,7 @@ export default function PageTemplate() {
     const location = useLocation();
     const showNavigation = location.pathname !== "/connect";
     return (
-        <div className="bg-neutral-900">
+        <div>
            <Navbar/>
            <div className="py-6 w-full flex flex-col justify-center items-center">
                 <div className="max-w-[1200px] w-full flex flex-col gap-6">

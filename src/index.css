@@ -3,11 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body {
-  font-family: 'Manrope', sans-serif;
-  background-color: #090718;
-}
-
 @theme {
   --color-primary-100: #F4F2FF;
   --color-primary-200: #EAE8FF;
@@ -189,6 +184,15 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #090718;
+    background-image: radial-gradient(
+      circle at 50% -20%,
+      rgba(255, 255, 255, 0.10),
+      transparent 60%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Manrope', sans-serif;
+    color: var(--color-foreground);
   }
 }
