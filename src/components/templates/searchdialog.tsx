@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { TokensData } from "@/data/token";
 import { PoolsData } from "@/data/pool";
 import { Link } from "react-router-dom";
-import soalana from "@/assets/overview/solana.png"
 
 export interface Token {
     name: string;
@@ -37,47 +36,14 @@ export interface Pool {
 }
 
 export type SearchableItem = Token | Pool;
+type RecentSearch = Token & { searchableName: string };
 
 const initialRecentSearches: SearchableItem[] = [
-    {
-        name: "Ethereum",
-        symbol: "ETH",
-        price: "$3,119.30",
-        change: "-0.96% (1d)",
-        image: TokensData.find(t => t.name === "Ethereum")?.image || '',
+    ...TokensData.slice(0, 3).map(item => ({
+        ...item,
         type: 'token',
-        balance: '0',
-        marketCap: '0',
-        volume: '0',
-        bars: [],
-        searchableName: 'Ethereum',
-    },
-    {
-        name: "Tether",
-        symbol: "USDT",
-        price: "$1,00",
-        change: "-0.01% (1d)",
-        image: TokensData.find(t => t.name === "Tether USD")?.image || '',
-        type: 'token',
-        balance: '0',
-        marketCap: '0',
-        volume: '0',
-        bars: [],
-        searchableName: 'Tether USD',
-    },
-    {
-        name: "Solana",
-        symbol: "SOL",
-        price: "$1,00",
-        change: "+0.00% (1d)",
-        image: soalana,
-        type: 'token',
-        balance: '0',
-        marketCap: '0',
-        volume: '0',
-        bars: [],
-        searchableName: 'Solana',
-    },
+        searchableName: item.name
+    })) as RecentSearch[],
 ]
 
 export default function SearchDialog() {
@@ -298,37 +264,40 @@ export default function SearchDialog() {
                             </div>
                             <div className="flex flex-row gap-2">
                                 {initialRecentSearches.map((item) => (
-                                    <div
-                                        className="flex flex-row px-3 py-[9px] w-full max-w-[254px] rounded-[12px] bg-white-neutral-900 hover:bg-white-neutral-800 transition-colors cursor-pointer"
-                                    >
-                                        {item.type === 'token' ? (
-                                            <div className="flex flex-row justify-between w-full">
-                                                <div className="flex flex-row gap-2 pr-1 items-center">
-                                                    <img src={item.image} alt={item.name} width={36} height={36} />
-                                                    <div className="flex flex-col">
-                                                        <span className="text-[14px] leading-[160%] font-bold text-base-white">{item.name}</span>
-                                                        <span className="text-[12px] leading-[165%] text-white-neutral-300">{item.symbol}</span>
+                                    <DialogClose asChild key={item.searchableName}>
+                                        <Link
+                                            to={item.type === 'token' ? `/tokens/details` : `/pools/details`}
+                                            className="flex flex-row px-3 py-[9px] w-full max-w-[254px] rounded-[8px] bg-white-neutral-900 hover:bg-white-neutral-800 transition-colors cursor-pointer"
+                                        >
+                                            {item.type === 'token' ? (
+                                                <div className="flex flex-row justify-between items-center w-full">
+                                                    <div className="flex flex-row gap-2 pr-1 items-center">
+                                                        <img src={item.image} alt={item.name} width={36} height={36} />
+                                                        <div className="flex flex-col">
+                                                            <span className="text-[14px] leading-[160%] font-bold text-base-white">{item.name}</span>
+                                                            <span className="text-[12px] leading-[165%] text-white-neutral-300">{item.symbol}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex flex-col  items-end">
+                                                        <span className="text-[14px] leading-[160%] font-bold text-base-white">{item.price}</span>
+                                                        <span className={`text-[12px] leading-[165%] font-medium ${item.change.startsWith('+') ? 'text-success-500' : 'text-danger-500'}`}>{item.change}</span>
                                                     </div>
                                                 </div>
-                                                <div className="flex flex-col w-[115px] items-end">
-                                                    <span className="text-[14px] leading-[160%] font-bold text-base-white">{item.price}</span>
-                                                    <span className={`text-[12px] leading-[165%] font-medium ${item.change.startsWith('+') ? 'text-success-500' : 'text-danger-500'}`}>{item.change}</span>
+                                            ) : (
+                                                <div className="flex flex-row items-center w-full">
+                                                    <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
+                                                        <img src={item.token1?.image} alt={item.token1?.name} width={16} height={16} />
+                                                        <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.token1?.name}</span>
+                                                    </div>
+                                                    <span className="font-medium text-white-neutral-300 text-[16px] leading-[160%] px-1">/</span>
+                                                    <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
+                                                        <img src={item.token2?.image} alt={item.token2?.name} width={16} height={16} />
+                                                        <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.token2?.name}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ) : (
-                                            <div className="flex flex-row items-center w-full">
-                                                <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
-                                                    <img src={item.token1?.image} alt={item.token1?.name} width={16} height={16} />
-                                                    <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.token1?.name}</span>
-                                                </div>
-                                                <span className="font-medium text-white-neutral-300 text-[16px] leading-[160%] px-1">/</span>
-                                                <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
-                                                    <img src={item.token2?.image} alt={item.token2?.name} width={16} height={16} />
-                                                    <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.token2?.name}</span>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
+                                            )}
+                                        </Link>
+                                    </DialogClose>
                                 ))}
                             </div>
                             <div className="flex flex-row items-center justify-between">
@@ -340,22 +309,26 @@ export default function SearchDialog() {
                             </div>
                             <div className="flex flex-col gap-0.5 w-full">
                                 {TokensData.slice(0, 3).map((item) => (
-                                    <div
-                                        className="flex flex-row items-center bg-white-neutral-900 rounded-[8px] p-3 hover:bg-white-neutral-800 transition-colors cursor-pointer"
-                                    >
-                                        <div className="w-full max-w-[290px] items-center justify-start flex flex-row gap-2">
-                                            <img src={item.image} alt={item.name} width={36} height={36} />
-                                            <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.name}</span>
-                                        </div>
-                                        <div className="flex flex-col items-end w-full max-w-[264px]">
-                                            <span className="text-[12px] leading-[165%] text-white-neutral-300">Market cap:</span>
-                                            <span className="text-[12px] leading-[165%] font-bold text-white-neutral-300">{item.marketCap}</span>
-                                        </div>
-                                        <div className="flex flex-col items-end w-full max-w-[200px]">
-                                            <span className="text-[12px] leading-[165%] font-bold text-base-white">{item.price}</span>
-                                            <span className={`text-[12px] leading-[165%] font-medium ${item.change.startsWith('+') ? 'text-success-500' : 'text-danger-500'}`}>{item.change}</span>
-                                        </div>
-                                    </div>
+                                    <DialogClose asChild>
+                                        <Link
+                                            to={`/tokens/details`}
+                                            className="flex flex-row items-center bg-white-neutral-900 rounded-[8px] p-3 hover:bg-white-neutral-800 transition-colors cursor-pointer"
+                                        >
+                                            <div className="w-full max-w-[290px] items-center justify-start flex flex-row gap-2">
+                                                <img src={item.image} alt={item.name} width={36} height={36} />
+                                                <span className="text-[14px] leading-[160%] text-base-white font-bold">{item.name}</span>
+                                            </div>
+                                            <div className="flex flex-col items-end w-full max-w-[264px]">
+                                                <span className="text-[12px] leading-[165%] text-white-neutral-300">Market cap:</span>
+                                                <span className="text-[12px] leading-[165%] font-bold text-white-neutral-300">{item.marketCap}</span>
+                                            </div>
+                                            <div className="flex flex-col items-end w-full max-w-[200px]">
+                                                <span className="text-[12px] leading-[165%] font-bold text-base-white">{item.price}</span>
+                                                <span className={`text-[12px] leading-[165%] font-medium ${item.change.startsWith('+') ? 'text-success-500' : 'text-danger-500'}`}>{item.change}</span>
+                                            </div>
+                                        </Link>
+                                    </DialogClose>
+                                    
                                 ))}
                             </div>
                         </>
