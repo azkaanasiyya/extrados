@@ -28,11 +28,9 @@ const CustomVolumeTooltip = ({ active, payload, activeTab }: CustomTooltipProps)
     }
 
     return (
-      <div className='bg-neutral-800 rounded-[8px]'>
-        <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700">
+      <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700 backdrop-blur-lg">
           <p className="text-[12px] leading-[165%] font-semibold text-base-white">{formattedValue}</p>
           <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{dataPoint.date}</p>
-        </div>
       </div>
     );
   }
@@ -128,6 +126,7 @@ const VolumePoolDetail = () => {
               tick={{ fill: '#9CA3AF' }} 
               axisLine={false} 
               tickLine={false}
+              padding={{left: 25}}
             />
             <YAxis 
               tickFormatter={(value) => `$${value}`}
@@ -136,8 +135,8 @@ const VolumePoolDetail = () => {
                 fontSize: 12, 
                 dy: 5
               }} 
-              padding={{ bottom: 20 }} 
-              minTickGap={10}
+              padding={{ bottom: 10 }} 
+              minTickGap={15}
               axisLine={false}
               tickLine={false}
               tickCount={5}
