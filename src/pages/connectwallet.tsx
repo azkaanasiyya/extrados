@@ -24,7 +24,7 @@ export default function ConnectWallet() {
         connectWallet();
     }
     return (
-        <div className="bg-neutral-900 flex flex-col items-center justify-start pt-[104px] min-h-screen">
+        <div className="flex flex-col items-center justify-start pt-[104px] min-h-screen">
             <div className="flex flex-row items-center gap-5">
                 <div className="w-full max-w-[473px] flex flex-col items-center gap-10 pr-10 py-10">
                     <div className="flex flex-col items-center gap-9">
