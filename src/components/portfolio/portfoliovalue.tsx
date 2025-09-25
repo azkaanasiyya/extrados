@@ -131,7 +131,14 @@ const PortfolioValue = () => {
                             tickLine={false}
                             tickCount={5}
                         />
-                        <ChartTooltip content={<CustomTooltip />} />
+                        <ChartTooltip 
+                            content={<CustomTooltip />} 
+                            cursor={{
+                                strokeDasharray: "4 4",
+                                stroke: "#FFFFFF8F",
+                                strokeWidth: 1.5,
+                            }} 
+                        />
                         <Line
                             dataKey="value"
                             type="monotone"
