@@ -35,8 +35,6 @@ const balanceData = [
   { date: '23 Oct', fullDate: 'Wed-23 Oct, 2021', value: 28, price: '6,540' },
   { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 15, price: '1,000' },
   { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: -10, price: '3,500' },
-  { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 32, price: '9,999' },
-  { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 20, price: '4,250' },
 ];
 
 const priceData = [
