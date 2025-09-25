@@ -10,7 +10,7 @@ import Transaction from "@/components/portfolio/transaction";
 
 export default function Portfolio() {
     return (
-        <div className="bg-neutral-900 flex flex-col items-center gap-5 justify-center">
+        <div className=" flex flex-col items-center gap-5 justify-center">
             <div className="max-w-[1200px] w-full">
                 <Price />
             </div>
