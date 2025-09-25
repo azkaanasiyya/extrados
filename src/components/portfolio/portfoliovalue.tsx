@@ -35,8 +35,6 @@ const portfolioData = [
   { date: '23 Oct', fullDate: 'Wed-23 Oct, 2021', value: 28, price: '6,540' },
   { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 15, price: '1,000' },
   { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: -10, price: '3,500' },
-  { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 32, price: '9,999' },
-  { date: '24 Oct', fullDate: 'Thu-24 Oct, 2021', value: 20, price: '4,250' },
 ];
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
@@ -117,6 +115,7 @@ const PortfolioValue = () => {
                             tick={{ fill: '#9CA3AF' }}
                             axisLine={false}
                             tickLine={false}
+                            padding={{left: 25}}
                         />
                         <YAxis
                             tickFormatter={(value) => `${value}%`}
@@ -125,7 +124,7 @@ const PortfolioValue = () => {
                                 fontSize: 12,
                                 dy: 5
                             }}
-                            padding={{ bottom: 20 }}
+                            padding={{ bottom: 10 }}
                             minTickGap={10}
                             axisLine={false}
                             tickLine={false}
