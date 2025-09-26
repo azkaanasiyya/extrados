@@ -216,12 +216,14 @@ export default function SearchDialog() {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
-                            <button
-                                onClick={handleClearSearch}
-                                className="cursor-pointer absolute right-14 top-1/2 -translate-y-1/2 text-white-neutral-500 hover:text-white-neutral-300 transition-colors"
-                            >
-                                <CircleX className="w-5 h-5 text-base-white opacity-40 hover:opacity-80" />
-                            </button>
+                            {isSearching && (
+                                <button
+                                    onClick={handleClearSearch}
+                                    className="cursor-pointer absolute right-14 top-1/2 -translate-y-1/2 text-white-neutral-500 hover:text-white-neutral-300 transition-colors"
+                                >
+                                    <CircleX className="w-5 h-5 text-base-white opacity-40 hover:opacity-80" />
+                                </button>
+                            )}
                             <img
                                 alt="command"
                                 src={command}
