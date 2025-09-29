@@ -7,6 +7,7 @@ import { CartesianGrid, Line, LineChart, XAxis, YAxis, type TooltipProps } from 
 import type { ChartConfig } from '@/components/ui/chart';
 import { TrendingUp } from 'lucide-react';
 import type { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
+import type { CategoricalChartState } from 'recharts/types/chart/types';
 
 const balanceData = [
   { date: '18 Oct', fullDate: 'Fri-18 Oct, 2021', value: 7, price: '9,865' },
@@ -68,17 +69,15 @@ const priceData = [
 
 const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
-    const dataPoint = [...balanceData, ...priceData].find(
-      d => d.date === label && d.value === payload[0].value
-    );
-    const formattedPrice = dataPoint ? `$${dataPoint.price}.00` : 'N/A';
-    const formattedDate = dataPoint ? dataPoint.fullDate : label;
+    const dataPoint = payload[0].payload;
+    const formattedPrice = dataPoint?.price ? `$${dataPoint.price}.00` : 'N/A';
+    const formattedDate = dataPoint?.fullDate || label;
 
     return (
-        <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700 backdrop-blur-lg">
-          <p className="text-[12px] leading-[165%] font-semibold text-base-white">{formattedPrice}</p>
-          <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{formattedDate}</p>
-        </div>
+      <div className="bg-white-neutral-800 px-2 py-1 rounded-[8px] border border-white-neutral-700 backdrop-blur-lg">
+        <p className="text-[12px] leading-[165%] font-semibold text-base-white">{formattedPrice}</p>
+        <p className="text-[12px] leading-[165%] font-medium text-white-neutral-400">{formattedDate}</p>
+      </div>
     );
   }
   return null;
@@ -87,6 +86,8 @@ const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({ active, pa
 const TotalBalance = () => {
   const [activeTab, setActiveTab] = useState('balance');
   const [activeTime, setActiveTime] = useState('1W');
+  
+  const [lineSplitPercentage, setLineSplitPercentage] = useState(100); 
 
   const chartConfig: ChartConfig = {
     balance: { label: 'Balance', color: '#ffff' },
@@ -96,7 +97,40 @@ const TotalBalance = () => {
   const chartData = activeTab === 'balance' ? balanceData : priceData;
   const dataKey = "value";
 
+  const allDataValues = [
+    ...balanceData.map(d => d.value),
+    ...priceData.map(d => d.value)
+  ].filter(v => typeof v === 'number');
+
+  const globalMin = Math.min(...allDataValues);
+  const globalMax = Math.max(...allDataValues);
+  
+  const yDomain = [
+      globalMin - 5,
+      globalMax + 5
+  ]; 
+
   const uniqueDates = Array.from(new Set([...chartData].reverse().map(d => d.date)));
+
+  const handleMouseMove = (state: CategoricalChartState) => {
+    if (state.activeTooltipIndex !== undefined && state.activeTooltipIndex !== null) {
+      const index = state.activeTooltipIndex;
+      const totalPoints = chartData.length - 1; 
+      
+      const percentage = (index / totalPoints) * 100;
+
+      setLineSplitPercentage(percentage);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setLineSplitPercentage(100); 
+  };
+  
+  useState(() => {
+    setLineSplitPercentage(100);
+  });
+
 
   return (
     <Card className="bg-neutral-900 bg-[url('/src/assets/overview/chart.png')] bg-no-repeat bg-cover bg-bottom text-white border border-white-neutral-800 w-full h-full flex flex-col justify-between">
@@ -155,11 +189,24 @@ const TotalBalance = () => {
       </CardHeader>
       <CardContent className="w-full">
         <ChartContainer config={chartConfig} className="h-[196px] w-full">
-          <LineChart data={chartData} margin={{ left: -15, right: 15 }}>
+          <LineChart 
+            data={chartData} 
+            margin={{ left: -15, right: 15 }}
+            onMouseMove={handleMouseMove} 
+            onMouseLeave={handleMouseLeave}
+          >
             <defs>
               <pattern id="dotted-pattern" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
                 <circle cx="2" cy="2" r="1.2" fill="#FFFFFF14" />
               </pattern>
+            </defs>
+            <defs>
+              <linearGradient id="lineColorSplit" x1="0%" y1="0" x2="100%" y2="0">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset={`${lineSplitPercentage}%`} stopColor="#FFFFFF" />
+                <stop offset={`${lineSplitPercentage}%`} stopColor="#AAAAAA" />
+                <stop offset="100%" stopColor="#AAAAAA" />
+              </linearGradient>
             </defs>
 
             <CartesianGrid
@@ -183,6 +230,7 @@ const TotalBalance = () => {
               axisLine={false}
               tickLine={false}
               tickCount={5}
+              domain={yDomain}
             />
             <ChartTooltip 
               content={<CustomTooltip />} 
@@ -192,13 +240,22 @@ const TotalBalance = () => {
                   strokeWidth: 1.5,
               }} 
             />
+            
             <Line
-              dataKey={dataKey}
               type="monotone"
-              stroke={chartConfig[activeTab].color}
+              dataKey={dataKey} 
+              stroke="url(#lineColorSplit)" 
               strokeWidth={2}
-              dot={false}
+              dot={false} 
+              isAnimationActive={false}
+              activeDot={{ 
+                r: 3,               
+                stroke: '#FFFFFF',  
+                strokeWidth: 2,    
+                fill: '#FFFFFF',    
+              }}
             />
+
           </LineChart>
 
         </ChartContainer>
