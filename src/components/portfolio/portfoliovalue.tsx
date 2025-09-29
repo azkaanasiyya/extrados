@@ -139,8 +139,8 @@ const PortfolioValue = () => {
 								<stop offset="0%" stopColor="#FFFFFF" />
 								<stop offset={`${lineSplitPercentage}%`} stopColor="#FFFFFF" />
 								
-								<stop offset={`${lineSplitPercentage}%`} stopColor="#AAAAAA" />
-								<stop offset="100%" stopColor="#AAAAAA" />
+								<stop offset={`${lineSplitPercentage}%`} stopColor="#FFFFFF33" />
+								<stop offset="100%" stopColor="#FFFFFF33" />
 							</linearGradient>
 						</defs>
 
