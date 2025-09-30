@@ -32,7 +32,7 @@ export default function Pools() {
             <TableBody>
                 {PoolsData.map((pool, index, arr) => (
                     <Link key={index} to={`/pools/details`} className={`mx-5 flex flex-row items-center cursor-pointer ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
-                        <TableRow key={index} className={`flex flex-row items-center w-full hover:bg-white-neutral-800`}>
+                        <TableRow key={index} className={`flex flex-row items-center w-full hover:bg-white-neutral-800 rounded-[8px]`}>
                             <TableCell className="px-2 py-4 flex flex-row items-center gap-2 w-full max-w-[424px]">
                                 <div className="p-3 py-[7px] flex flex-row items-center gap-2 bg-white-neutral-900 border border-white-neutral-800 rounded-[8px]">
                                     <img src={pool.token1.image} alt={pool.token1.name} width={16} height={16} />
