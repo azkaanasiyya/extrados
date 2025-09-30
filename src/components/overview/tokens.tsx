@@ -52,7 +52,7 @@ export default function Tokens() {
                     });
                     return (
                         <Link key={index} to={`/tokens/details`} className={`mx-5 flex flex-row items-center cursor-pointer ${index === arr.length - 1 ? '' : 'border-b border-white-neutral-800'}`}>
-                           <TableRow key={index} className="flex flex-row items-center w-full hover:bg-white-neutral-900">
+                           <TableRow key={index} className="flex flex-row items-center w-full hover:bg-white-neutral-900 rounded-[8px]">
                                 <TableCell className="py-2.5 px-2 w-full max-w-[208px] items-center justify-start flex flex-row gap-2">
                                     <img src={token.image} alt={token.name} className="w-9 h-9" />
                                     <span className="text-[14px] leading-[160%] text-base-white font-bold">{token.name}</span>
