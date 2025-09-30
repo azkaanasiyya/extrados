@@ -184,7 +184,6 @@ const PortfolioValue = () => {
 							stroke="url(#lineColorSplit)"
 							strokeWidth={2}
 							dot={false}
-							isAnimationActive={false} 
 							activeDot={{ 
 								r: 3, 
 								stroke: '#FFFFFF',
