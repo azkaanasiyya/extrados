@@ -11,7 +11,7 @@ export default function Navbar() {
     return (
         <div className="bg-white-neutral-900 flex flex-col justify-center items-center w-full">
             <div className="max-w-[1376px] w-full py-4 px-8 flex flex-row justify-between items-center">
-                <Link to="/">
+                <Link to="/" className="cursor-pointer">
                     <img src={logo} alt="logo" />
                 </Link>
                 <SearchDialog/>
