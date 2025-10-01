@@ -27,7 +27,7 @@ export function GreedIndex() {
       <CardContent className="relative w-full flex flex-col justify-center items-center">
         <div className="w-[250px] h-[130px] relative">
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }} 
@@ -36,7 +36,7 @@ export function GreedIndex() {
           </motion.div>
 
           <motion.div
-            className="absolute top-15.5 left-[-3px]"
+            className="absolute top-15.5 left-[-3px] pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -45,7 +45,7 @@ export function GreedIndex() {
           </motion.div>
           
           <motion.div
-            className="absolute top-4.5 left-4.5"
+            className="absolute top-4.5 left-4.5 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -54,7 +54,7 @@ export function GreedIndex() {
           </motion.div>
           
           <motion.div
-            className="absolute left-16 top-[-1px]"
+            className="absolute left-16 top-[-1px] pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -63,7 +63,7 @@ export function GreedIndex() {
           </motion.div>
             
           <motion.div
-            className="absolute top-6 left-5"
+            className="absolute top-6 left-5 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.7, ease: "backIn" }}
