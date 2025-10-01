@@ -23,7 +23,7 @@ export function PoolComposition() {
       <CardContent className="relative w-full flex flex-col justify-center items-center">
         <div className="w-[250px] h-[130px] relative">
           <motion.div
-            className="absolute top-15.5 left-[-3px] pointer-events-none"
+            className="absolute right-1 top-0 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }} 
