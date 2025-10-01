@@ -9,7 +9,7 @@ import {
 
 import { motion } from "framer-motion"
 
-// import ChartBackground from "@/assets/overview/background.svg?react"
+import ChartBackground from "@/assets/overview/background.svg?react"
 import ChartUngu from "@/assets/overview/purple.svg?react"
 import ChartBiru from "@/assets/overview/blue.svg?react"
 import ChartHijau from "@/assets/overview/green.svg?react"
@@ -26,14 +26,14 @@ export function GreedIndex() {
 
       <CardContent className="relative w-full flex flex-col justify-center items-center">
         <div className="w-[250px] h-[130px] relative">
-          {/* <motion.div
-            className="absolute inset-0 pointer-events-none"
+          <motion.div
+            className="absolute left-[-1] top-0 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }} 
           >
             <ChartBackground />
-          </motion.div> */}
+          </motion.div>
 
           <motion.div
             className="absolute top-15.5 left-[-3px] pointer-events-none"
