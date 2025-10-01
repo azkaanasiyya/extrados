@@ -14,7 +14,7 @@ import ChartUngu from "@/assets/overview/purple.svg?react"
 import ChartBiru from "@/assets/overview/blue.svg?react"
 import ChartHijau from "@/assets/overview/green.svg?react"
 import Gradient from "@/assets/overview/bgradient.svg?react"
-import ChartBG from "@/assets/overview/chartBG.svg?react"
+import ChartCoba from "@/assets/overview/chartCoba.svg?react"
 
 export function GreedIndex() {
   return (
@@ -33,7 +33,7 @@ export function GreedIndex() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }} 
           >
-            <ChartBG />
+            <ChartCoba />
           </motion.div>
 
           <motion.div
