@@ -11,7 +11,9 @@ export default function Navbar() {
     return (
         <div className="bg-white-neutral-900 flex flex-col justify-center items-center w-full">
             <div className="max-w-[1376px] w-full py-4 px-8 flex flex-row justify-between items-center">
-                <img src={logo} alt="logo" />
+                <Link to="/">
+                    <img src={logo} alt="logo" />
+                </Link>
                 <SearchDialog/>
                 <div className='flex flex-row gap-5 items-center'>
                     <div className='flex flex-row gap-3 items-center border-r border-white-neutral-800 pr-5'>
