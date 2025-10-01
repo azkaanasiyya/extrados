@@ -28,7 +28,7 @@ export function GreedIndex() {
       <CardContent className="relative w-full flex flex-col justify-center items-center">
         <div className="w-[250px] h-[130px] relative">
           <motion.div
-            className="absolute right-2 top-2 pointer-events-none"
+            className="absolute right-1 top-0 pointer-events-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }} 
