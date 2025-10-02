@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
     const { isWalletConnected, walletAddress } = useWallet();
     return (
-        <div className="bg-white-neutral-900 flex flex-col justify-center items-center w-full">
-            <div className="max-w-[1376px] w-full py-4 px-8 flex flex-row justify-between items-center">
+        <div className="bg-white-neutral-900 flex flex-col items-center">
+            <div className=" w-full py-4 px-8 flex flex-row justify-between items-center">
                 <Link to="/" className="cursor-pointer">
                     <img src={logo} alt="logo" />
                 </Link>
